@@ -11,7 +11,6 @@
             background-image: url('wallpaper.png');
             background-size: cover;
         }
-
     </style>
 </head>
 
