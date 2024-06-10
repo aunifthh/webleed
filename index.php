@@ -7,6 +7,7 @@
     <title>WeBleed - Blood Donation Website</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="bloodimage-removebg-preview.png">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -165,7 +166,7 @@
         </div>
         <div>
             <a href="index.php">Home</a>
-            <a href="process_registration.php">Sign Up</a>
+            <a href="process_registration.php">Sign in</a>
         </div>
     </div>
 
@@ -178,17 +179,17 @@
     <main>
         <section class="form-section">
             <h2>Registration</h2>
-            <a href="process_registration.php" target="_blank" class="registration-link">Register</a>
+            <a href="process_registration.php" class="registration-link">Register</a>
         </section>
 
         <section class="form-section">
             <h2>Login</h2>
-            <a href="process_login.php" target="_blank" class="registration-link">Login</a>
+            <a href="process_login.php" class="registration-link">Login</a>
         </section>
 
         <section class="form-section">
             <h2>Contact Us</h2>
-            <a href="contact.php" target="_blank" class="registration-link">Contact</a>
+            <a href="contact.php" class="registration-link">Contact</a>
         </section>
 
         <br>
