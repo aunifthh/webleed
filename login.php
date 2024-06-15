@@ -1,73 +1,59 @@
-<?PHP
-session_start();
+<!DOCTYPE html>
+<html lang="en">
 
-# check whether the following information exists or not
-if (empty($_POST['id']) or empty($_POST['password']) or empty($_POST['type']))
-{
-	# If it does not exist
-    die("<script>
-            alert('The username and password you entered did not match our records. Please double-check and try again.');
-            window.location.href='index.php';
-        </script>");
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeBleed</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
+</head>
 
-# STAFF
-if($_POST['type']=='staff')
-{
-	$table  = "staff";
-	$field1  = "staffid";
-    $field2  = "staffpassword";
-	$field3  = "staffname";
-	$field4  = "staffphoneno";
-	$location  = "staff/index.php";
-}
+<body>
+<nav class="navbar">
+        <div class="logo_item">
+            <img src="logo.jpg" alt="Company Logo">
+            <span>WeBleed</span>
+        </div>
+        <div class="navbar_content">
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="signup.php">Sign Up</a></li>
+                <li></li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <!--<img src="donateblood.jpg" alt="Donate Blood">-->
+        <h1>WeBleed - Blood Donation Website</h1>
+        <p>Become a Hero Today!</p>
+    </header>
+    <div class="form-section">
+        <h2>Login</h2>
+        <form action="login0.php" method="post">
+            <div class="form-group">
+                <label for="id">Username:</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Login as:</label><br>
+                <input type='radio' id='staff' name='type' value='staff' checked>Staff
+                <br>
+                
+                <input type='radio' id='donor' name='type' value='donor'>Donor
+                <br>
+                
+                <input type='radio' id='healthcareprovider' name='type' value='healthcareprovider'>Healthcare Provider
+                
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    
+</body>
 
-# DONOR
-else if($_POST['type']=='donor')
-{
-	$table  = "donor";
-	$field1  = "donid";
-    $field2  = "donpassword";
-	$field3  = "donname";
-	$location  = "donor/index.php";
-}
-
-# HEALTHCARE PROVIDER
-else if($_POST['type']=='healthcareprovider')
-{
-    $table = "healthcareprovider";
-    $field1 = "hpid";
-    $field2 = "hppassword";
-    $location = "hp/index.php";
-}
-
-include('connection.php');
-
-# Retrieve and sanitize POST data
-$id = mysqli_real_escape_string($condb,$_POST['id']);
-$password = mysqli_real_escape_string($condb,$_POST['password']);
-
-# SQL command to compare data
-$sql_login = "SELECT * FROM $table WHERE $field1 = '$id' AND $field2 = '$password' LIMIT 1";
-
-# Execute the login command
-$result_login = mysqli_query($condb, $sql_login);
-
-# If there is 1 matching record
-if (mysqli_num_rows($result_login) == 1) {
-    # Login successful, assign session variables
-    $data = mysqli_fetch_array($result_login);
-    $_SESSION[$field3] = $data[$field3];
-    $_SESSION[$field1] = $data[$field1];
-    echo "<script>window.location.href='$location';</script>";
-} else {
-    # Login failed
-    echo "<script>
-            alert('Incorrect ID and Password');
-            window.history.back();
-        </script>";
-}
-
-# Close the connection between the system and the database
-mysqli_close($condb);
-?>
+</html>
