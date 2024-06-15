@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>WeBleed</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
 
 <body>
@@ -33,7 +34,7 @@
         <h2>Registration</h2>
         <form action="signup0.php" method="post">
             <div class="form-group">
-                <label for="id">ID:</label>
+                <label for="id">Username:</label>
                 <input type="text" id="id" name="id" placeholder="(Eg: Ali5)" required>
             </div>
 

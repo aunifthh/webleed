@@ -6,13 +6,13 @@ body {
     padding: 0;
     background-color: white;
     color: #333;
-    background-image: url('wallpaper.png');
+    background-image: none;
     background-size: cover;
 }
 
 header {
     text-align: center;
-    padding-top: 80px;
+    padding-top: 80px; /* Reduced padding */
 }
 
 header img {
@@ -21,26 +21,28 @@ header img {
 }
 
 header h1 {
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 10px; /* Reduced margin */
+    margin-bottom: 5px; /* Reduced margin */
     font-size: 2em;
 }
 
 header p {
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced margin */
 }
 
 main {
-    padding: 20px;
+    padding: 10px; /* Reduced padding */
 }
 
 h2 {
     text-align: center;
     color: #c0392b;
+    margin-top: 20px; /* Reduced margin */
+    margin-bottom: 10px; /* Reduced margin */
 }
 
 section {
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Reduced margin */
 }
 
 .form-section {
@@ -50,12 +52,13 @@ section {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin: 120px auto 20px;
+    padding: 20px; /* Reduced padding */
+    margin: 60px auto 20px; /* Reduced margin */
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced margin */
+    margin-right: 20px;
 }
 
 label {
@@ -172,10 +175,9 @@ footer img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 20px;
+    padding: 20px 10px;
     z-index: 1000;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
-    margin-right: 15px;
 }
 
 .logo_item {
@@ -184,14 +186,14 @@ footer img {
     column-gap: 10px;
     font-size: 22px;
     font-weight: 500;
-    color: #0052cc;
+    color: #c0392b; /* Changed color to red */
     margin-left: 5px;
 }
 
 .navbar img {
-    width: 10px;
-    height: 10px;
-    border-radius: 75%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     margin-left: 5px;
 }
 
@@ -234,4 +236,86 @@ footer img {
     margin-bottom: 10px;
 }
 
+/* Profile Container */
+.profile-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
 
+.profile-container h2 {
+    margin-bottom: 10px; /* Reduced margin */
+    font-size: 24px;
+    color: #333;
+}
+
+.profile-info p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.profile-info strong {
+    color: #333;
+}
+
+.profile-actions {
+    margin-top: 30px;
+}
+
+.profile-actions .button {
+    padding: 10px 20px;
+    background-color: #4070f4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.profile-actions .button:hover {
+    background-color: #3050d4;
+}
+
+/*logout.php*/
+body {
+    align-items: center;
+}
+.logout-container {
+    text-align: center;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.logout-actions button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-actions button[type="submit"] {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.logout-actions button[type="button"] {
+    background-color: #ddd;
+    color: #333;
+}
+
+.logout-actions button:hover {
+    background-color: #a93226;
+}
