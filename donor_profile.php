@@ -31,6 +31,7 @@ mysqli_close($condb);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeBleed</title>
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -49,19 +50,39 @@ mysqli_close($condb);
     </nav>
     <div class="profile-container">
         <h2>Donor Profile</h2>
+        <div class="profile-pic">
+                <img src="nopfp.png" alt="Profile Picture">
+        </div>
         <div class="profile-info">
             <p><strong>Username:</strong> <?php echo $donor['donid']; ?></p>
             <p><strong>Name:</strong> <?php echo $donor['donname']; ?></p>
             <p><strong>Age:</strong> <?php echo $donor['donage']; ?></p>
-            <p><strong>Gender:</strong> <?php echo $donor['dongender']; ?></p>
+            <p><strong>Gender:</strong> 
+            <?php
+            if ($donor['dongender'] == 'M') {
+                echo 'Male';
+            } elseif ($donor['dongender'] == 'F') {
+                echo 'Female';
+            }
+            ?>
+            </p>
             <p><strong>Weight:</strong> <?php echo $donor['donweight']; ?></p>
             <!--<p><strong>Phone Number:</strong> <?php echo $donor['donphoneno']; ?></p> -->
+            <p><strong>Eligible status:</strong>
+            <?php
+            if ($donor['eligiblestatus'] == 'Y') {
+                echo 'Eligible';
+            } elseif ($donor['eligiblestatus' == 'N']) {
+                echo 'Not Eligible';
+            }
+            ?>
             <p><strong>Blood Type:</strong> <?php echo $donor['donbloodtype']; ?></p>
             <p><strong>Blood Quantity:</strong> <?php echo $donor['donbloodqty']; ?></p>
             <p><strong>Blood Donation Frequency:</strong> <?php echo $donor['donfrequency']; ?></p>
         </div>
         <div class="profile-actions">
-            <a href="edit_profile_donor.php" class="button">Edit Profile</a>
+            <a href="donor_edit_profile.php" class="button">Edit Profile</a>
+            <a href="donor_change_password.php" class="button">Change Password</a>
         </div>
     </div>
 
