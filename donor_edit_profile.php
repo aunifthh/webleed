@@ -85,11 +85,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($donor['donName']); ?>">
+                <input type="text" id="name" name="name">
             </div>
             <div class="form-group">
                 <label for="age">Age:</label>
-                <input type="text" id="age" name="age" value="<?php echo htmlspecialchars($donor['donAge']); ?>">
+                <input type="text" id="age" name="age">
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
@@ -100,19 +100,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="weight">Weight:</label>
-                <input type="text" id="weight" name="weight" value="<?php echo htmlspecialchars($donor['donWeight']); ?>">
+                <input type="text" id="weight" name="weight">
             </div>
             <div class="form-group">
                 <label for="bloodtype">Blood Type:</label>
-                <input type="text" id="bloodtype" name="bloodtype" value="<?php echo htmlspecialchars($donor['donBloodType']); ?>">
+                <input type="text" id="bloodtype" name="bloodtype">
             </div>
             <div class="form-group">
                 <label for="bloodqty">Blood Quantity:</label>
-                <input type="text" id="bloodqty" name="bloodqty" value="<?php echo htmlspecialchars($donor['donBloodQty']); ?>">
+                <input type="text" id="bloodqty" name="bloodqty">
             </div>
             <div class="form-group">
                 <label for="frequency">Donation Frequency:</label>
-                <input type="text" id="frequency" name="frequency" value="<?php echo htmlspecialchars($donor['donFrequency']); ?>">
+                <input type="text" id="frequency" name="frequency">
             </div>
             <button type="submit">Update Profile</button>
         </form>

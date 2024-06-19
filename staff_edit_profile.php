@@ -61,8 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="navbar_content">
             <ul>
-                <li><a href="home_staff.php">Home</a></li>
+                <li><a href="staff_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
+                <li></li>
             </ul>
         </div>
     </nav>
@@ -71,11 +72,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="<?php echo $staff['staffName']; ?>" required>
+                <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="phoneno">Phone Number:</label>
-                <input type="text" id="phoneno" name="phoneno" value="<?php echo $staff['staffPhoneNo']; ?>" required>
+                <input type="text" id="phoneno" name="phoneno" required>
             </div>
             <button type="submit">Update Profile</button>
         </form>

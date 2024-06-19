@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Password</title>
+    <title>WeBleed</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
         </div>
     </nav>
-    <div class="form-section">
+    <div class="edit-section">
         <h2>Change Password</h2>
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form-group">
