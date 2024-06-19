@@ -27,27 +27,27 @@ header h1 {
 }
 
 header p {
-    margin-bottom: 10px; /* Reduced margin */
+    margin-bottom: 10px;
 }
 
 main {
-    padding: 10px; /* Reduced padding */
+    padding: 10px;
 }
 
 h2 {
     text-align: center;
     color: #c0392b;
-    margin-top: 20px; /* Reduced margin */
-    margin-bottom: 10px; /* Reduced margin */
+    margin-top: 10px;
+    margin-bottom: 10px; 
 }
 
 section {
-    margin-bottom: 20px; /* Reduced margin */
+    margin-bottom: 20px;
 }
 
 .form-section {
     width: 80%;
-    max-width: 600px;
+    max-width: 400px;
     text-align: center;
     background-color: #fff;
     border-radius: 10px;
