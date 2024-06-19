@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in as a donor
-if (!isset($_SESSION['donid'])) {
+if (!isset($_SESSION['donID'])) {
     // If not, redirect to login page
     header("Location: login.php");
     exit();
@@ -11,9 +11,9 @@ if (!isset($_SESSION['donid'])) {
 include('connection.php');
 
 // Fetch donor information from the database
-$donid = $_SESSION['donid'];
+$donid = $_SESSION['donID'];
 
-$query = "SELECT * FROM donor WHERE donid = '$donid'";
+$query = "SELECT * FROM donor WHERE donID = '$donid'";
 $result = mysqli_query($condb, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
@@ -42,7 +42,7 @@ mysqli_close($condb);
         </div>
         <div class="navbar_content">
             <ul>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="home_donor.php">Home</a></li>
                 <li><a href="logout.php">Logout</a></li>
                 <li></li>
             </ul>
@@ -54,31 +54,31 @@ mysqli_close($condb);
                 <img src="nopfp.png" alt="Profile Picture">
         </div>
         <div class="profile-info">
-            <p><strong>Username:</strong> <?php echo $donor['donid']; ?></p>
-            <p><strong>Name:</strong> <?php echo $donor['donname']; ?></p>
-            <p><strong>Age:</strong> <?php echo $donor['donage']; ?></p>
+            <p><strong>Username:</strong> <?php echo $donor['donID']; ?></p>
+            <p><strong>Name:</strong> <?php echo $donor['donName']; ?></p>
+            <p><strong>Age:</strong> <?php echo $donor['donAge']; ?></p>
             <p><strong>Gender:</strong> 
             <?php
-            if ($donor['dongender'] == 'M') {
+            if ($donor['donGender'] == 'M') {
                 echo 'Male';
-            } elseif ($donor['dongender'] == 'F') {
+            } elseif ($donor['donGender'] == 'F') {
                 echo 'Female';
             }
             ?>
             </p>
-            <p><strong>Weight:</strong> <?php echo $donor['donweight']; ?></p>
-            <!--<p><strong>Phone Number:</strong> <?php echo $donor['donphoneno']; ?></p> -->
+            <p><strong>Weight:</strong> <?php echo $donor['donWeight']; ?></p>
+            <!--<p><strong>Phone Number:</strong> <?php echo $donor['donPhoneNo']; ?></p> -->
             <p><strong>Eligible status:</strong>
             <?php
-            if ($donor['eligiblestatus'] == 'Y') {
+            if ($donor['eligibleStatus'] == 'Y') {
                 echo 'Eligible';
-            } elseif ($donor['eligiblestatus' == 'N']) {
+            } elseif ($donor['eligibleStatus' == 'N']) {
                 echo 'Not Eligible';
             }
             ?>
-            <p><strong>Blood Type:</strong> <?php echo $donor['donbloodtype']; ?></p>
-            <p><strong>Blood Quantity:</strong> <?php echo $donor['donbloodqty']; ?></p>
-            <p><strong>Blood Donation Frequency:</strong> <?php echo $donor['donfrequency']; ?></p>
+            <p><strong>Blood Type:</strong> <?php echo $donor['donBloodType']; ?></p>
+            <p><strong>Blood Quantity:</strong> <?php echo $donor['donBloodQty']; ?></p>
+            <p><strong>Blood Donation Frequency:</strong> <?php echo $donor['donFrequency']; ?></p>
         </div>
         <div class="profile-actions">
             <a href="donor_edit_profile.php" class="button">Edit Profile</a>

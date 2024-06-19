@@ -12,21 +12,21 @@ include('connection.php');
 
 if ($_POST['type'] == 'staff') {
     $table = "staff";
-    $field1 = "staffid";
-    $field2 = "staffpassword";
-    $field3 = "staffname";
-    $field4 = "staffphoneno";
+    $field1 = "staffID";
+    $field2 = "staffPassword";
+    $field3 = "staffName";
+    $field4 = "staffPhoneNo";
     $location = "staff/index.php";
 } else if ($_POST['type'] == 'donor') {
     $table = "donor";
-    $field1 = "donid";
-    $field2 = "donpassword";
-    $field3 = "donname";
+    $field1 = "donID";
+    $field2 = "donPassword";
+    $field3 = "donName";
     $location = "home_donor.php";
 } else if ($_POST['type'] == 'healthcareprovider') {
     $table = "healthcareprovider";
-    $field1 = "hpid";
-    $field2 = "hppassword";
+    $field1 = "hpID";
+    $field2 = "hpPassword";
     $location = "hp/index.php";
 }
 

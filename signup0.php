@@ -28,7 +28,7 @@ if (!empty($_POST)) {
     # Check if the STAFFID exists in the STAFF table
     $staffid = 1; // Assign a valid STAFFID here based on your database
 
-    $check_staffid_query = "SELECT * FROM STAFF WHERE STAFFID = '$staffid'";
+    $check_staffid_query = "SELECT * FROM staff WHERE staffID = '$staffid'";
     $check_staffid_result = mysqli_query($condb, $check_staffid_query);
 
     if (mysqli_num_rows($check_staffid_result) == 0) {
@@ -40,7 +40,7 @@ if (!empty($_POST)) {
     }
 
     # Insert donor data into the DONOR table
-    $sql_insert = "INSERT INTO DONOR (DONID, DONPASSWORD, DONNAME, DONGENDER, DONAGE, DONBLOODTYPE, DONWEIGHT, DONBLOODQTY, DONFREQUENCY, ELIGIBLESTATUS, STAFFID)
+    $sql_insert = "INSERT INTO donor (donID, donPassword, donName, donGender, donAge, donBloodType, donWeight, donBloodQty, donFrequency, eligibleStatus, staffID)
                    VALUES ('$id', '$hashed_password', '$name', '$gender', '$age', '$bloodtype', '$weight', 0, 0, 'N', '$staffid')";
 
     if (mysqli_query($condb, $sql_insert)) {

@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in as a donor
-if (!isset($_SESSION['donid'])) {
+if (!isset($_SESSION['donID'])) {
     // If not, redirect to login page
     header("Location: login.php");
     exit();
@@ -11,9 +11,9 @@ if (!isset($_SESSION['donid'])) {
 include('connection.php');
 
 // Fetch donor information from the database
-$donid = $_SESSION['donid'];
+$donid = $_SESSION['donID'];
 
-$query = "SELECT * FROM donor WHERE donid = '$donid'";
+$query = "SELECT * FROM donor WHERE donID = '$donid'";
 $result = mysqli_query($condb, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
@@ -35,14 +35,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $frequency = $_POST['frequency'];
 
     // Update donor information in the database
-    $update_query = "UPDATE donor SET donname = '$name', donage = '$age', dongender = '$gender', 
-                    donweight = '$weight', donbloodtype = '$bloodtype', donbloodqty = '$bloodqty', 
-                    donfrequency = '$frequency' WHERE donid = '$donid'";
+    $update_query = "UPDATE donor SET donName = '$name', donAge = '$age', donGender = '$gender', 
+                    donWeight = '$weight', donBloodType = '$bloodtype', donBloodQty = '$bloodqty', 
+                    donFrequency = '$frequency' WHERE donID = '$donid'";
 
     if (mysqli_query($condb, $update_query)) {
-        echo "Profile updated successfully.";
+        // Use JavaScript for alert and redirect
+        echo "<script>
+                alert('Profile updated successfully.');
+                window.location.href = 'donor_profile.php';
+              </script>";
     } else {
-        echo "Error updating profile: " . mysqli_error($condb);
+        // Use JavaScript for error alert
+        echo "<script>
+                alert('Error updating profile: " . mysqli_error($condb) . "');
+              </script>";
     }
 
     mysqli_close($condb);
@@ -68,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="navbar_content">
             <ul>
-                <li><a href="index.php">Home</a></li>
+                <li><a href="donor_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
@@ -78,34 +85,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="<?php echo $donor['donname']; ?>">
+                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($donor['donName']); ?>">
             </div>
             <div class="form-group">
                 <label for="age">Age:</label>
-                <input type="text" id="age" name="age" value="<?php echo $donor['donage']; ?>">
+                <input type="text" id="age" name="age" value="<?php echo htmlspecialchars($donor['donAge']); ?>">
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender">
-                    <option value="M" <?php if ($donor['dongender'] == 'M') echo 'selected'; ?>>Male</option>
-                    <option value="F" <?php if ($donor['dongender'] == 'F') echo 'selected'; ?>>Female</option>
+                    <option value="M" <?php if ($donor['donGender'] == 'M') echo 'selected'; ?>>Male</option>
+                    <option value="F" <?php if ($donor['donGender'] == 'F') echo 'selected'; ?>>Female</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="weight">Weight:</label>
-                <input type="text" id="weight" name="weight" value="<?php echo $donor['donweight']; ?>">
+                <input type="text" id="weight" name="weight" value="<?php echo htmlspecialchars($donor['donWeight']); ?>">
             </div>
             <div class="form-group">
                 <label for="bloodtype">Blood Type:</label>
-                <input type="text" id="bloodtype" name="bloodtype" value="<?php echo $donor['donbloodtype']; ?>">
+                <input type="text" id="bloodtype" name="bloodtype" value="<?php echo htmlspecialchars($donor['donBloodType']); ?>">
             </div>
             <div class="form-group">
                 <label for="bloodqty">Blood Quantity:</label>
-                <input type="text" id="bloodqty" name="bloodqty" value="<?php echo $donor['donbloodqty']; ?>">
+                <input type="text" id="bloodqty" name="bloodqty" value="<?php echo htmlspecialchars($donor['donBloodQty']); ?>">
             </div>
             <div class="form-group">
                 <label for="frequency">Donation Frequency:</label>
-                <input type="text" id="frequency" name="frequency" value="<?php echo $donor['donfrequency']; ?>">
+                <input type="text" id="frequency" name="frequency" value="<?php echo htmlspecialchars($donor['donFrequency']); ?>">
             </div>
             <button type="submit">Update Profile</button>
         </form>
