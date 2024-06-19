@@ -71,3 +71,4 @@
         <p>&copy; 2024 WeBleed - Blood Donation Website</p>
     </footer>
 </body>
+</html>

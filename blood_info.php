@@ -40,11 +40,12 @@ if (!$result) {
                 <li><a href="home_hp.php">Home</a></li>
                 <li><a href="hp_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
+                <li></li>
             </ul>
         </div>
     </nav>
 
-    <div class="form-section">
+    <div class="blood-section">
         <h2>Blood Sample Information</h2>
         <table>
             <thead>
@@ -72,4 +73,8 @@ if (!$result) {
         </table>
     </div>
 </body>
+<footer>
+        <img src="bottom.png" alt="Footer Image">
+        <p>&copy; 2024 WeBleed - Blood Donation Website</p>
+    </footer>
 </html>
