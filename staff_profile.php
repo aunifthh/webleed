@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-// Check if the user is logged in as a healthcare provider
-if (!isset($_SESSION['hpID'])) {
+// Check if the user is logged in as a donor
+if (!isset($_SESSION['staffID'])) {
     // If not, redirect to login page
     header("Location: login.php");
     exit();
@@ -11,15 +11,15 @@ if (!isset($_SESSION['hpID'])) {
 include('connection.php');
 
 // Fetch donor information from the database
-$hpid = $_SESSION['hpID'];
+$staffid = $_SESSION['staffID'];
 
-$query = "SELECT * FROM healthcareprovider WHERE hpID = '$hpid'";
+$query = "SELECT * FROM staff WHERE staffID = '$staffid'";
 $result = mysqli_query($condb, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
-    $hp = mysqli_fetch_assoc($result);
+    $staff = mysqli_fetch_assoc($result);
 } else {
-    echo "Error fetching healthcare provider data.";
+    echo "Error fetching staff data.";
     exit();
 }
 
@@ -42,25 +42,25 @@ mysqli_close($condb);
         </div>
         <div class="navbar_content">
             <ul>
-                <li><a href="home_hp.php">Home</a></li>
+                <li><a href="home_staff.php">Home</a></li>
                 <li><a href="logout.php">Logout</a></li>
                 <li></li>
             </ul>
         </div>
     </nav>
     <div class="profile-container">
-        <h2>Healthcare Provider Profile</h2>
+        <h2>Staff Profile</h2>
         <div class="profile-pic">
                 <img src="nopfp.png" alt="Profile Picture">
         </div>
         <div class="profile-info">
-            <p><strong>ID:</strong> <?php echo $hp['hpID']; ?></p>
-            <p><strong>Password:</strong> <?php echo $hp['hpPassword']; ?></p>
-            <p><strong>Sample Number:</strong> <?php echo $hp['sampleNo']; ?></p>
+            <p><strong>ID:</strong> <?php echo $staff['staffID']; ?></p>
+            <p><strong>Name:</strong> <?php echo $staff['staffName']; ?></p>
+            <p><strong>Phone Number:</strong> <?php echo $staff['staffPhoneNo']; ?></p>
         </div>
         <div class="profile-actions">
-            <!--<a href="hp_edit_profile.php" class="button">Edit Profile</a> -->
-            <a href="hp_change_password.php" class="button">Change Password</a>
+            <a href="staff_edit_profile.php" class="button">Edit Profile</a>
+            <a href="staff_change_password.php" class="button">Change Password</a>
         </div>
     </div>
 

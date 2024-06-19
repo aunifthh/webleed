@@ -16,7 +16,7 @@ if ($_POST['type'] == 'staff') {
     $field2 = "staffPassword";
     $field3 = "staffName";
     $field4 = "staffPhoneNo";
-    $location = "staff/index.php";
+    $location = "home_staff.php";
 } else if ($_POST['type'] == 'donor') {
     $table = "donor";
     $field1 = "donID";
