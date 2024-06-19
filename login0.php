@@ -38,7 +38,7 @@ $result_login = mysqli_query($condb, $sql_login);
 
 if (mysqli_num_rows($result_login) == 1) {
     $data = mysqli_fetch_array($result_login);
-    $_SESSION[$field3] = $data[$field3];
+    $_SESSION[$field2] = $data[$field2];
     $_SESSION[$field1] = $data[$field1];
 
     echo "<script>

@@ -34,7 +34,7 @@
         <form action="signup0.php" method="post">
             <div class="form-group">
                 <label for="id">ID:</label>
-                <input type="text" id="id" name="id" placeholder="(Eg: Ali5)" required>
+                <input type="text" id="id" name="id" placeholder="(Eg: 1105)" required>
             </div>
 
             <div class="form-group">
