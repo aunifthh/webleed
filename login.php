@@ -32,7 +32,7 @@
         <h2>Login</h2>
         <form action="login0.php" method="post">
             <div class="form-group">
-                <label for="id">Username:</label>
+                <label for="id">ID:</label>
                 <input type="text" id="id" name="id" required>
             </div>
             <div class="form-group">

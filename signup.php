@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<nav class="navbar">
+    <nav class="navbar">
         <div class="logo_item">
             <img src="logo.jpg" alt="Company Logo">
             <span>WeBleed</span>
@@ -28,16 +28,14 @@
         <h1>WeBleed - Blood Donation Website</h1>
         <p>Become a Hero Today!</p>
     </header>
-    
-    </div>
+
     <div class="form-section">
         <h2>Registration</h2>
         <form action="signup0.php" method="post">
             <div class="form-group">
-                <label for="id">Username:</label>
+                <label for="id">ID:</label>
                 <input type="text" id="id" name="id" placeholder="(Eg: Ali5)" required>
             </div>
-
 
             <div class="form-group">
                 <label for="Name">Name:</label>
@@ -52,14 +50,14 @@
             <div class="form-group">
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender" required>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="bloodtype">Blood Type:</label>
-                <select id="bloodtype" name="gender" required>
+                <select id="bloodtype" name="bloodtype" required>
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="O">O</option>
@@ -70,6 +68,26 @@
             <div class="form-group">
                 <label for="weight">Weight:</label>
                 <input type="number" name="weight" placeholder="(Eg: 48)" required>
+            </div>
+
+            <div class="form-group">
+                <label for="staff">Choose Staff:</label>
+                <select id="staff" name="staff" required>
+                    <option value="">Select Staff</option>
+                    <?php
+                    include('connection.php');
+                    $staff_query = "SELECT staffID, staffName FROM staff";
+                    $staff_result = mysqli_query($condb, $staff_query);
+
+                    if ($staff_result && mysqli_num_rows($staff_result) > 0) {
+                        while ($staff = mysqli_fetch_assoc($staff_result)) {
+                            echo "<option value='" . $staff['staffID'] . "'>" . $staff['staffName'] . "</option>";
+                        }
+                    }
+
+                    mysqli_close($condb);
+                    ?>
+                </select>
             </div>
 
             <div class="form-group">

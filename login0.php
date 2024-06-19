@@ -27,7 +27,7 @@ if ($_POST['type'] == 'staff') {
     $table = "healthcareprovider";
     $field1 = "hpID";
     $field2 = "hpPassword";
-    $location = "hp/index.php";
+    $location = "home_hp.php";
 }
 
 $id = mysqli_real_escape_string($condb, $_POST['id']);

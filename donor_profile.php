@@ -54,7 +54,7 @@ mysqli_close($condb);
                 <img src="nopfp.png" alt="Profile Picture">
         </div>
         <div class="profile-info">
-            <p><strong>Username:</strong> <?php echo $donor['donID']; ?></p>
+            <p><strong>ID:</strong> <?php echo $donor['donID']; ?></p>
             <p><strong>Name:</strong> <?php echo $donor['donName']; ?></p>
             <p><strong>Age:</strong> <?php echo $donor['donAge']; ?></p>
             <p><strong>Gender:</strong> 
