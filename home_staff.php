@@ -32,7 +32,7 @@
     <main>
         <section class="form-section">
             <h2>View Staff Information</h2>
-            <a href="#" class="registration-link">Check now</a>
+            <a href="staff_details.php" class="registration-link">Check now</a>
         </section>
 
         <section class="form-section">
