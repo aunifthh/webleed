@@ -37,7 +37,7 @@
 
         <section class="form-section">
             <h2>Edit Profile</h2>
-            <a href="donor_profile.php" class="registration-link">Edit</a>
+            <a href="donor_edit_profile.php" class="registration-link">Edit</a>
         </section>
 
         <br>

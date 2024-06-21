@@ -42,7 +42,7 @@
                 <option value="no">No</option>
             </select>
 
-            <label for="pregnant">Are you pregnant?</label>
+            <label for="pregnant">Are you a nursing mother, pregnant, or have recently given birth?</label>
             <select id="pregnant" name="pregnant" required>
                 <option value="yes">Yes</option>    
                 <option value="no">No</option>  
