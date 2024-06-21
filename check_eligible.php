@@ -16,6 +16,7 @@
         </div>
         <div class="navbar_content">
             <ul>
+                <li><a href="home_donor.php">Home</a></li>
                 <li><a href="donor_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
                 <li></li>
