@@ -32,7 +32,7 @@
     <main>
         <section class="form-section">
             <h2>Check Eligible</h2>
-            <a href="#" class="registration-link">Check now</a>
+            <a href="check_eligible.php" class="registration-link">Check now</a>
         </section>
 
         <section class="form-section">

@@ -72,7 +72,7 @@ mysqli_close($condb);
             <?php
             if ($donor['eligibleStatus'] == 'Y') {
                 echo 'Eligible';
-            } elseif ($donor['eligibleStatus' == 'N']) {
+            } else if ($donor['eligibleStatus' == 'N']) {
                 echo 'Not Eligible';
             }
             ?>
