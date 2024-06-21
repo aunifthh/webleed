@@ -13,6 +13,14 @@ $donAge = $_POST['donAge'];
 $donWeight = $_POST['donWeight'];
 $isEligible = $_POST['isEligible'];
 
+// Additional field for pregnancy
+$pregnant = isset($_POST['pregnant']) ? $_POST['pregnant'] : 'no';
+
+// Check if pregnant
+if ($pregnant === 'yes') {
+    $isEligible = 'N'; // If pregnant, not eligible
+}
+
 // Update the eligibility status in the database
 $query = "UPDATE donor SET donAge = ?, donWeight = ?, eligibleStatus = ? WHERE donID = ?";
 $stmt = $condb->prepare($query);

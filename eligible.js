@@ -5,19 +5,20 @@ document.getElementById('eligibilityForm').addEventListener('submit', function(e
     const weight = parseInt(document.getElementById('weight').value);
     const lastDonation = document.getElementById('lastDonation').value;
     const healthIssues = document.getElementById('healthIssues').value.toLowerCase();
+    const pregnant = document.getElementById('pregnant').value.toLowerCase(); // New line
 
     let result = '';
     let isEligible = true;
 
     // Check age
-    if (age < 18 || age > 65) {
-        result += 'You must be between 18 and 65 years old to donate blood.<br>';
+    if (age < 18 || age > 55) {
+        result += 'You must be between 18 and 55 years old to donate blood.<br>';
         isEligible = false;
     }
 
     // Check weight
-    if (weight < 50) {
-        result += 'You must weigh at least 50 kg to donate blood.<br>';
+    if (weight <= 45) {
+        result += 'You must weigh at least 45 kg to donate blood.<br>';
         isEligible = false;
     }
 
@@ -37,6 +38,12 @@ document.getElementById('eligibilityForm').addEventListener('submit', function(e
     // Check health issues
     if (healthIssues === 'yes') {
         result += 'You may not be eligible to donate blood due to health issues.<br>';
+        isEligible = false;
+    }
+
+    // Check pregnancy
+    if (pregnant === 'yes') {
+        result += 'Pregnant individuals are not eligible to donate blood.<br>';
         isEligible = false;
     }
 

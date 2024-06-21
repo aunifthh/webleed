@@ -35,10 +35,16 @@
             <label for="lastDonation">Last Donation Date:</label>
             <input type="date" id="lastDonation" name="lastDonation" required><br><br>
 
-            <label for="healthIssues">Do you have any health issues? (Yes/No):</label>
+            <label for="healthIssues">Do you have any serious health issues? (AIDS / Heart Disease / Anemia, other) :</label>
             <select id="healthIssues" name="healthIssues" required>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
+            </select>
+
+            <label for="pregnant">Are you pregnant?</label>
+            <select id="pregnant" name="pregnant" required>
+                <option value="yes">Yes</option>    
+                <option value="no">No</option>  
             </select>
 
             <br><br>
