@@ -51,34 +51,9 @@
         </section>
 
         <section class="form-section">
-            <h2>Edit Profile</h2>
-            <a href="staff_profile.php" class="registration-link">Edit</a>
+            <h2>View reward</h2>
+            <a href="#" class="registration-link">Edit</a>
         </section>
-
-        <br>
-        <h2>Donate your blood with us to earn numerous benefits!</h2>
-        <table class="reward">
-            <tr>
-                <th>Frequency (within a year)</th>
-                <th>Rewards</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Free 1 outpatient treatment and 1 medical treatment</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Free 1 outpatient treatment and 2nd class wards for a period of 4 months</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Free 3 outpatient treatment and 2nd class medical treatment for a 6 month period</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Free 1 year outpatient treatment, free Influenza Vaccine and 2nd class medical treatment for a 8 month period</td>
-            </tr>
-        </table>
     </main>
 
     <footer>
