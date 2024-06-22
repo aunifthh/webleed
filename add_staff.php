@@ -3,7 +3,7 @@ session_start();
 include('connection.php');
 
 // Fetch available blood centers
-$bc_query = "SELECT BCID, BCName FROM bloodcenter";
+$bc_query = "SELECT bcID, bcName FROM bloodcenter";
 $bc_result = mysqli_query($condb, $bc_query);
 
 if (!$bc_result) {
@@ -59,7 +59,7 @@ if (!$bc_result) {
                 <select id="bcID" name="bcID" required>
                     <option value="">Select a Blood Center</option>
                     <?php while($row = mysqli_fetch_assoc($bc_result)): ?>
-                        <option value="<?php echo $row['BCID']; ?>"><?php echo $row['BCName']; ?></option>
+                        <option value="<?php echo $row['bcID']; ?>"><?php echo $row['bcName']; ?></option>
                     <?php endwhile; ?>
                 </select>
             </div>

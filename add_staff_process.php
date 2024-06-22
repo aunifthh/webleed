@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $staffPhoneNo = mysqli_real_escape_string($condb, $_POST['staffPhoneNo']);
     $bcID = mysqli_real_escape_string($condb, $_POST['bcID']);
 
-    $query = "INSERT INTO staff (staffID, staffPassword, staffName, staffPhoneNo, BCID) 
+    $query = "INSERT INTO staff (staffID, staffPassword, staffName, staffPhoneNo, bcID) 
               VALUES ('$staffID', '$staffPassword', '$staffName', '$staffPhoneNo', '$bcID')";
 
     if (mysqli_query($condb, $query)) {
