@@ -62,7 +62,7 @@ INSERT INTO `bloodsample` (`sampleNo`, `bloodType`, `status`, `bcID`) VALUES
 CREATE TABLE `reward` (
   `rewardID` int(4) NOT NULL,
   `rewardType` int(1) NOT NULL,
-  `rewardName` varchar(45) NOT NULL,
+  `rewardName` varchar(200) NOT NULL,
   `rewardDonFrequency` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -70,10 +70,10 @@ CREATE TABLE `reward` (
 
 INSERT INTO `reward` (`rewardID`, `rewardType`, `rewardName`, `rewardDonFrequency`) VALUES
 (6000, 0, 'No reward', 0),
-(6001, 1, '1 outpatient treatme', 1),
-(6002, 2, '1 outpatient treatme & 2nd class ward', 2),
-(6003, 3, '3 outpatient treatme', 3),
-(6004, 4, '1 year outpatient treatme', 4);
+(6001, 1, 'Free 1 outpatient treatment and 1 medical treatment', 1),
+(6002, 2, 'Free 1 outpatient treatment and 2nd class wards for a period of 4 months', 2),
+(6003, 3, 'Free 3 outpatient treatment and 2nd class medical treatment for a 6 month period', 3),
+(6004, 4, 'Free 1 year outpatient treatment, free Influenza Vaccine and 2nd class medical treatment for a 8 month period', 4);
 
 -- Table structure for table `donor`
 
@@ -130,8 +130,8 @@ CREATE TABLE `staff` (
 -- Dumping data for table `staff`
 
 INSERT INTO `staff` (`staffID`, `staffPassword`, `staffName`, `staffPhoneNo`, `bcID`) VALUES
-(2001, 'pass1234', 'Alia', '1112223333', 1001),
-(2002, 'pass5678', 'Abu', '4445556666', 1002);
+(2001, 'password1', 'Alia', '1112223333', 1001),
+(2002, 'password2', 'Abu', '4445556666', 1002);
 
 -- Indexes for dumped tables
 

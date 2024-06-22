@@ -73,13 +73,15 @@ mysqli_close($condb);
             <?php
             if ($donor['eligibleStatus'] == 'Y') {
                 echo 'Eligible';
-            } else if ($donor['eligibleStatus' == "null"]) {
+            } 
+            else if ($donor['eligibleStatus'] == null) { // fixed here
                 echo 'Do Eligible Test';
             }
-            else if ($donor['eligibleStatus' == 'N']) {
+            else if ($donor['eligibleStatus'] == 'N') {
                 echo 'Not Eligible';
             }
             ?>
+
             <p><strong>Blood Type:</strong> <?php echo $donor['donBloodType']; ?></p>
             <p><strong>Blood Quantity:</strong> <?php echo $donor['donBloodQty']; ?></p>
             <p><strong>Blood Donation Frequency:</strong> <?php echo $donor['donFrequency']; ?></p>

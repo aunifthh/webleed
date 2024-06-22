@@ -52,7 +52,7 @@
 
         <section class="form-section">
             <h2>View reward</h2>
-            <a href="#" class="registration-link">Edit</a>
+            <a href="view_reward.php" class="registration-link">Edit</a>
         </section>
     </main>
 
