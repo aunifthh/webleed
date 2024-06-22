@@ -43,7 +43,7 @@ document.getElementById('eligibilityForm').addEventListener('submit', function(e
 
     // Check pregnancy
     if (pregnant === 'yes') {
-        result += 'Pregnant individuals are not eligible to donate blood.<br>';
+        result += 'Individuals who are pregnant, breastfeeding, or have recently given birth are ineligible to donate blood. Please wait around 6 months before donating blood.<br>';
         isEligible = false;
     }
 
