@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (empty($_POST['id']) or empty($_POST['password']) or empty($_POST['type'])) {
+if (empty($_POST['id']) || empty($_POST['password']) || empty($_POST['type'])) {
     die("<script>
             alert('Please enter both username and password.');
             window.location.href='index.php';
@@ -9,6 +9,12 @@ if (empty($_POST['id']) or empty($_POST['password']) or empty($_POST['type'])) {
 }
 
 include('connection.php');
+
+$table = "";
+$field1 = "";
+$field2 = "";
+$field3 = "";
+$location = "";
 
 if ($_POST['type'] == 'staff') {
     $table = "staff";
@@ -27,29 +33,37 @@ if ($_POST['type'] == 'staff') {
     $table = "healthcareprovider";
     $field1 = "hpID";
     $field2 = "hpPassword";
+    $field3 = "";
     $location = "home_hp.php";
 }
 
 $id = mysqli_real_escape_string($condb, $_POST['id']);
 $password = mysqli_real_escape_string($condb, $_POST['password']);
 
-$sql_login = "SELECT * FROM $table WHERE $field1 = '$id' AND $field2 = '$password' LIMIT 1";
+$sql_login = "SELECT * FROM $table WHERE $field1 = '$id' LIMIT 1";
 $result_login = mysqli_query($condb, $sql_login);
 
 if (mysqli_num_rows($result_login) == 1) {
     $data = mysqli_fetch_array($result_login);
-    $_SESSION[$field2] = $data[$field2];
-    $_SESSION[$field1] = $data[$field1];
-
-    echo "<script>
-            alert('Welcome back, {$_POST['type']} ');
-            window.location.href='$location';
-            </script>";
+    
+    if ($data[$field2] == $password) {
+        $_SESSION[$field2] = $data[$field2];
+        $_SESSION[$field1] = $data[$field1];
+        echo "<script>
+                alert('Welcome back, {$_POST['type']}');
+                window.location.href='$location';
+              </script>";
+    } else {
+        echo "<script>
+                alert('Incorrect Password');
+                window.history.back();
+              </script>";
+    }
 } else {
     echo "<script>
-            alert('Incorrect ID and Password');
+            alert('Incorrect ID or you selected the wrong login type.');
             window.history.back();
-        </script>";
+          </script>";
 }
 
 mysqli_close($condb);

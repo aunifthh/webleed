@@ -68,11 +68,15 @@ mysqli_close($condb);
             </p>
             <p><strong>Weight:</strong> <?php echo $donor['donWeight']; ?></p>
             <!--<p><strong>Phone Number:</strong> <?php echo $donor['donPhoneNo']; ?></p> -->
-            <p><strong>Eligible status:</strong>
+            <p><strong>Eligible status:</strong> <!--<?php echo $donor['eligibleStatus']; ?> -->
+           
             <?php
             if ($donor['eligibleStatus'] == 'Y') {
                 echo 'Eligible';
-            } else if ($donor['eligibleStatus' == 'N']) {
+            } else if ($donor['eligibleStatus' == "null"]) {
+                echo 'Do Eligible Test';
+            }
+            else if ($donor['eligibleStatus' == 'N']) {
                 echo 'Not Eligible';
             }
             ?>

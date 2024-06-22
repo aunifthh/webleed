@@ -75,8 +75,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="navbar_content">
             <ul>
+                <li><a href="home_donor.php">Home</a></li>
                 <li><a href="donor_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
+                <li></li>
             </ul>
         </div>
     </nav>
@@ -106,14 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="bloodtype">Blood Type:</label>
                 <input type="text" id="bloodtype" name="bloodtype">
             </div>
-            <div class="form-group">
-                <label for="bloodqty">Blood Quantity:</label>
-                <input type="text" id="bloodqty" name="bloodqty">
-            </div>
-            <div class="form-group">
-                <label for="frequency">Donation Frequency:</label>
-                <input type="text" id="frequency" name="frequency">
-            </div>
+            
             <button type="submit">Update Profile</button>
         </form>
     </div>
