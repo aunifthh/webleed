@@ -17,7 +17,7 @@ if (!$result || mysqli_num_rows($result) == 0) {
 $staff = mysqli_fetch_assoc($result);
 
 // Fetch available blood centers
-$bc_query = "SELECT BCID, BCName FROM bloodcenter";
+$bc_query = "SELECT bcID, bcName FROM bloodcenter";
 $bc_result = mysqli_query($condb, $bc_query);
 
 if (!$bc_result) {
@@ -34,6 +34,19 @@ if (!$bc_result) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<nav class="navbar">
+        <div class="logo_item">
+            <img src="logo.jpg" alt="Company Logo">
+            <span>WeBleed</span>
+        </div>
+        <div class="navbar_content">
+            <ul>
+                <li><a href="staff_details.php">Staff Details</a></li>
+                <li><a href="staff_profile.php">Profile</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="edit-section">
         <h2>Edit Staff Details</h2>
         <form action="edit_staff_process.php" method="POST">
@@ -50,8 +63,8 @@ if (!$bc_result) {
                 <label for="bcID">Blood Center:</label>
                 <select id="bcID" name="bcID" required>
                     <?php while ($bc_row = mysqli_fetch_assoc($bc_result)): ?>
-                        <option value="<?php echo $bc_row['BCID']; ?>" <?php if ($bc_row['BCID'] == $staff['BCID']) echo 'selected'; ?>>
-                            <?php echo $bc_row['BCName']; ?>
+                        <option value="<?php echo $bc_row['bcID']; ?>" <?php if ($bc_row['bcID'] == $staff['bcID']) echo 'selected'; ?>>
+                            <?php echo $bc_row['bcName']; ?>
                         </option>
                     <?php endwhile; ?>
                 </select>

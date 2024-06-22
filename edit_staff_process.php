@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $staffPhoneNo = mysqli_real_escape_string($condb, $_POST['staffPhoneNo']);
     $bcID = mysqli_real_escape_string($condb, $_POST['bcID']);
 
-    $query = "UPDATE staff SET staffName='$staffName', staffPhoneNo='$staffPhoneNo', BCID='$bcID' WHERE staffID='$staffID'";
+    $query = "UPDATE staff SET staffName='$staffName', staffPhoneNo='$staffPhoneNo', bcID='$bcID' WHERE staffID='$staffID'";
 
     if (mysqli_query($condb, $query)) {
         echo "<script>

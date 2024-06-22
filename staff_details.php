@@ -3,9 +3,9 @@ session_start();
 include('connection.php');
 
 // Fetch staff details from the database
-$query = "SELECT staff.staffID, staff.staffName, staff.staffPhoneNo, bloodcenter.BCName 
+$query = "SELECT staff.staffID, staff.staffName, staff.staffPhoneNo, bloodcenter.bcName 
           FROM staff 
-          JOIN bloodcenter ON staff.BCID = bloodcenter.BCID";
+          JOIN bloodcenter ON staff.bcID = bloodcenter.bcID";
 $result = mysqli_query($condb, $query);
 
 if (!$result) {
@@ -54,10 +54,10 @@ if (!$result) {
                     <td><?php echo $row['staffID']; ?></td>
                     <td><?php echo $row['staffName']; ?></td>
                     <td><?php echo $row['staffPhoneNo']; ?></td>
-                    <td><?php echo $row['BCName']; ?></td>
+                    <td><?php echo $row['bcName']; ?></td>
                     <td>
                         <a href="edit_staff.php?staffID=<?php echo $row['staffID']; ?>" class="button">Edit</a>
-                        <a href="delete_staff.php?staffID=<?php echo $row['staffID']; ?>" class="button">Delete</a>
+                        <a href="delete_staff.php?id=<?php echo $row['staffID']; ?>" class="button" onclick="return confirm('Are you sure you want to delete this staff member?');">Delete</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>
