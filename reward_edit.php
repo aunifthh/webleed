@@ -39,8 +39,9 @@ mysqli_close($condb);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Reward Details</title>
+    <title>WeBleed</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
 <body>
     <nav class="navbar">
@@ -58,7 +59,7 @@ mysqli_close($condb);
             </ul>
         </div>
     </nav>
-    <div class="edit-section">
+    <div class="details-section">
         <h2>Edit Reward Details</h2>
         <form action="" method="POST">
             <div class="form-group">

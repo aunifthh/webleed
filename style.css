@@ -369,8 +369,8 @@ footer img {
     text-align: center
 }
 
-.staff-details-section {
-    width: 90%;
+.details-section {
+    width: 95%;
     max-width: 800px;
     text-align: center;
     background-color: #fff;
@@ -379,3 +379,4 @@ footer img {
     padding: 30px;
     margin: 100px auto;
 }
+

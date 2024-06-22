@@ -31,28 +31,28 @@
 
     <main>
         <section class="form-section">
-            <h2>View Staff Information</h2>
-            <a href="staff_details.php" class="registration-link">Check now</a>
+            <h2>Staff Information</h2>
+            <a href="staff_details.php" class="registration-link">View</a>
         </section>
 
         <section class="form-section">
-            <h2>View Donor Information</h2>
-            <a href="donor_details.php" class="registration-link">Check now</a>
+            <h2>Donor Information</h2>
+            <a href="donor_details.php" class="registration-link">View</a>
         </section>
 
         <section class="form-section">
-            <h2>View Blood Sample Information</h2>
-            <a href="#" class="registration-link">Check now</a>
+            <h2>Blood Sample Information</h2>
+            <a href="#" class="registration-link">View</a>
         </section>
 
         <section class="form-section">
-            <h2>View Blood Center Information</h2>
-            <a href="#" class="registration-link">Check now</a>
+            <h2>Blood Center Information</h2>
+            <a href="#" class="registration-link">View</a>
         </section>
 
         <section class="form-section">
-            <h2>View reward</h2>
-            <a href="view_reward.php" class="registration-link">Edit</a>
+            <h2>Rewards</h2>
+            <a href="view_reward.php" class="registration-link">View</a>
         </section>
     </main>
 

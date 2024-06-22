@@ -29,13 +29,14 @@ if (!$result) {
         </div>
         <div class="navbar_content">
             <ul>
-                <li><a href="staff_details.php">Staff Details</a></li>
+                <li><a href="home_staff.php">Home</a></li>
                 <li><a href="staff_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
+                <li></li>
             </ul>
         </div>
     </nav>
-    <div class="staff-details-section">
+    <div class="details-section">
         <h2>Staff List</h2>
         <a href="add_staff.php" class="button">Add New Staff</a>
         <table>
@@ -57,7 +58,7 @@ if (!$result) {
                     <td><?php echo $row['bcName']; ?></td>
                     <td>
                         <a href="edit_staff.php?staffID=<?php echo $row['staffID']; ?>" class="button">Edit</a>
-                        <a href="delete_staff.php?id=<?php echo $row['staffID']; ?>" class="button" onclick="return confirm('Are you sure you want to delete this staff member?');">Delete</a>
+                        <a href="delete_staff.php?id=<?php echo $row['staffID']; ?>" class="button delete-button" onclick="return confirm('Are you sure you want to delete this staff member?');">Delete</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>
