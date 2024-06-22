@@ -11,21 +11,16 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
 -- Database: `webleeddb`
---
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `bloodcenter`
---
 
 CREATE TABLE `bloodcenter` (
   `bcID` int(4) NOT NULL,
@@ -37,9 +32,7 @@ CREATE TABLE `bloodcenter` (
   `bcBloodQtyAB` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `bloodcenter`
---
 
 INSERT INTO `bloodcenter` (`bcID`, `bcName`, `bcPhoneNo`, `bcBloodQtyA`, `bcBloodQtyB`, `bcBloodQtyO`, `bcBloodQtyAB`) VALUES
 (1001, 'Hospital Sultanah Aminah', '1234567890', 500, 300, 700, 200),
@@ -47,9 +40,7 @@ INSERT INTO `bloodcenter` (`bcID`, `bcName`, `bcPhoneNo`, `bcBloodQtyA`, `bcBloo
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `bloodsample`
---
 
 CREATE TABLE `bloodsample` (
   `sampleNo` int(4) NOT NULL,
@@ -58,9 +49,7 @@ CREATE TABLE `bloodsample` (
   `bcID` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `bloodsample`
---
 
 INSERT INTO `bloodsample` (`sampleNo`, `bloodType`, `status`, `bcID`) VALUES
 (4001, 'A', 'Available', 1001),
@@ -68,9 +57,25 @@ INSERT INTO `bloodsample` (`sampleNo`, `bloodType`, `status`, `bcID`) VALUES
 
 -- --------------------------------------------------------
 
---
+-- Table structure for table `reward`
+
+CREATE TABLE `reward` (
+  `rewardID` int(4) NOT NULL,
+  `rewardType` int(1) NOT NULL,
+  `rewardName` varchar(45) NOT NULL,
+  `rewardDonFrequency` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table `reward`
+
+INSERT INTO `reward` (`rewardID`, `rewardType`, `rewardName`, `rewardDonFrequency`) VALUES
+(6000, 0, 'No reward', 0),
+(6001, 1, '1 outpatient treatme', 1),
+(6002, 2, '1 outpatient treatme & 2nd class ward', 2),
+(6003, 3, '3 outpatient treatme', 3),
+(6004, 4, '1 year outpatient treatme', 4);
+
 -- Table structure for table `donor`
---
 
 CREATE TABLE `donor` (
   `donID` int(4) NOT NULL,
@@ -83,23 +88,20 @@ CREATE TABLE `donor` (
   `donWeight` int(3) NOT NULL,
   `donFrequency` int(1) NOT NULL,
   `eligibleStatus` char(1) NOT NULL,
-  `staffID` int(4) NOT NULL
+  `staffID` int(4) NOT NULL,
+  `rewardID` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `donor`
---
 
-INSERT INTO `donor` (`donID`, `donPassword`, `donName`, `donGender`, `donAge`, `donBloodType`, `donBloodQty`, `donWeight`, `donFrequency`, `eligibleStatus`, `staffID`) VALUES
-(1616, 'password', 'Amir', 'M', 27, 'A', 0, 77, 0, '', 2001),
-(3001, 'donpass1', 'Mira', 'F', 30, 'A', 1, 70, 3, 'Y', 2001),
-(3002, 'donpass2', 'Ali', 'M', 28, 'O', 1, 65, 2, 'Y', 2002);
+INSERT INTO `donor` (`donID`, `donPassword`, `donName`, `donGender`, `donAge`, `donBloodType`, `donBloodQty`, `donWeight`, `donFrequency`, `eligibleStatus`, `staffID`, `rewardID`) VALUES
+(3616, 'password', 'Amir', 'M', 27, 'A', 0, 77, 0, '', 2001, 6000),
+(3001, 'password', 'Mira', 'F', 30, 'A', 1, 70, 3, 'Y', 2001, 6003),
+(3002, 'password', 'Ali', 'M', 28, 'O', 1, 65, 2, 'Y', 2002, 6002);
 
 -- --------------------------------------------------------
 
---
 -- Table structure for table `healthcareprovider`
---
 
 CREATE TABLE `healthcareprovider` (
   `hpID` int(4) NOT NULL,
@@ -107,9 +109,7 @@ CREATE TABLE `healthcareprovider` (
   `sampleNo` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `healthcareprovider`
---
 
 INSERT INTO `healthcareprovider` (`hpID`, `hpPassword`, `sampleNo`) VALUES
 (5001, 'hppass1', 4001),
@@ -117,31 +117,7 @@ INSERT INTO `healthcareprovider` (`hpID`, `hpPassword`, `sampleNo`) VALUES
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `reward`
---
-
-CREATE TABLE `reward` (
-  `rewardID` int(4) NOT NULL,
-  `rewardType` int(1) NOT NULL,
-  `rewardName` varchar(45) NOT NULL,
-  `rewardDonFrequency` int(1) NOT NULL,
-  `donID` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `reward`
---
-
-INSERT INTO `reward` (`rewardID`, `rewardType`, `rewardName`, `rewardDonFrequency`, `donID`) VALUES
-(6001, 1, '3 Outpatient treatme', 3, 3001),
-(6002, 2, '1 Outpatient treatme', 2, 3002);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `staff`
---
 
 CREATE TABLE `staff` (
   `staffID` int(4) NOT NULL,
@@ -151,94 +127,61 @@ CREATE TABLE `staff` (
   `bcID` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `staff`
---
 
 INSERT INTO `staff` (`staffID`, `staffPassword`, `staffName`, `staffPhoneNo`, `bcID`) VALUES
 (2001, 'pass1234', 'Alia', '1112223333', 1001),
 (2002, 'pass5678', 'Abu', '4445556666', 1002);
 
---
 -- Indexes for dumped tables
---
 
---
 -- Indexes for table `bloodcenter`
---
 ALTER TABLE `bloodcenter`
   ADD PRIMARY KEY (`bcID`);
 
---
 -- Indexes for table `bloodsample`
---
 ALTER TABLE `bloodsample`
   ADD PRIMARY KEY (`sampleNo`),
-  ADD KEY `BCID` (`bcID`);
+  ADD KEY `bcID` (`bcID`);
 
---
 -- Indexes for table `donor`
---
 ALTER TABLE `donor`
   ADD PRIMARY KEY (`donID`),
-  ADD KEY `STAFFID` (`staffID`);
+  ADD KEY `staffID` (`staffID`),
+  ADD KEY `rewardID` (`rewardID`);
 
---
 -- Indexes for table `healthcareprovider`
---
 ALTER TABLE `healthcareprovider`
   ADD PRIMARY KEY (`hpID`),
-  ADD KEY `SAMPLENO` (`sampleNo`);
+  ADD KEY `sampleNo` (`sampleNo`);
 
---
 -- Indexes for table `reward`
---
 ALTER TABLE `reward`
-  ADD PRIMARY KEY (`rewardID`),
-  ADD KEY `DONID` (`donID`);
+  ADD PRIMARY KEY (`rewardID`);
 
---
 -- Indexes for table `staff`
---
 ALTER TABLE `staff`
   ADD PRIMARY KEY (`staffID`),
-  ADD KEY `BCID` (`bcID`);
+  ADD KEY `bcID` (`bcID`);
 
---
 -- Constraints for dumped tables
---
 
---
 -- Constraints for table `bloodsample`
---
 ALTER TABLE `bloodsample`
-  ADD CONSTRAINT `bloodsample_ibfk_1` FOREIGN KEY (`BCID`) REFERENCES `bloodcenter` (`BCID`);
+  ADD CONSTRAINT `bloodsample_ibfk_1` FOREIGN KEY (`bcID`) REFERENCES `bloodcenter` (`bcID`);
 
---
 -- Constraints for table `donor`
---
 ALTER TABLE `donor`
-  ADD CONSTRAINT `donor_ibfk_1` FOREIGN KEY (`STAFFID`) REFERENCES `staff` (`STAFFID`);
+  ADD CONSTRAINT `donor_ibfk_1` FOREIGN KEY (`staffID`) REFERENCES `staff` (`staffID`),
+  ADD CONSTRAINT `donor_ibfk_2` FOREIGN KEY (`rewardID`) REFERENCES `reward` (`rewardID`);
 
---
+
 -- Constraints for table `healthcareprovider`
---
 ALTER TABLE `healthcareprovider`
-  ADD CONSTRAINT `healthcareprovider_ibfk_1` FOREIGN KEY (`SAMPLENO`) REFERENCES `bloodsample` (`SAMPLENO`);
+  ADD CONSTRAINT `healthcareprovider_ibfk_1` FOREIGN KEY (`sampleNo`) REFERENCES `bloodsample` (`sampleNo`);
 
---
--- Constraints for table `reward`
---
-ALTER TABLE `reward`
-  ADD CONSTRAINT `reward_ibfk_1` FOREIGN KEY (`donid`) REFERENCES `donor` (`DONID`);
-
---
 -- Constraints for table `staff`
---
 ALTER TABLE `staff`
-  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`BCID`) REFERENCES `bloodcenter` (`BCID`);
-COMMIT;
+  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`bcID`) REFERENCES `bloodcenter` (`bcID`);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+COMMIT
