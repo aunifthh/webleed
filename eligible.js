@@ -37,7 +37,7 @@ document.getElementById('eligibilityForm').addEventListener('submit', function(e
 
     // Check health issues
     if (healthIssues === 'yes') {
-        result += 'You may not be eligible to donate blood due to health issues.<br>';
+        result += 'You may not be eligible to donate blood due to serious health issues.<br>';
         isEligible = false;
     }
 
