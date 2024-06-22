@@ -31,8 +31,8 @@
 
     <main>
         <section class="form-section">
-            <h2>View Blood Information</h2>
-            <a href="blood_info.php" class="registration-link">Check now</a>
+            <h2>Blood Information</h2>
+            <a href="blood_info.php" class="registration-link">View</a>
         </section>
 
         <section class="form-section">
