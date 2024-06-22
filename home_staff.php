@@ -42,12 +42,12 @@
 
         <section class="form-section">
             <h2>Blood Sample Information</h2>
-            <a href="#" class="registration-link">View</a>
+            <a href="bloodsample_details.php" class="registration-link">View</a>
         </section>
 
         <section class="form-section">
             <h2>Blood Center Information</h2>
-            <a href="#" class="registration-link">View</a>
+            <a href="bloodcenter_details.php" class="registration-link">View</a>
         </section>
 
         <section class="form-section">
