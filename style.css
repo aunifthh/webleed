@@ -359,3 +359,23 @@ footer img {
     border-radius: 5px;
 }
 
+/* Staff Container */
+.staff-container {
+    padding: 20px;
+    margin-top: 80px; /* Adjust this value if there's overlap */
+}
+
+.staff-container h2 {
+    text-align: center
+}
+
+.staff-details-section {
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 100px auto;
+}

@@ -16,8 +16,9 @@ if (!$bc_result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Staff</title>
+    <title>WeBleed</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
 <body>
 <nav class="navbar">
@@ -34,7 +35,7 @@ if (!$bc_result) {
             </ul>
         </div>
     </nav>
-    <div class="form-section">
+    <div class="edit-section">
         <h2>Add New Staff</h2>
         <form action="add_staff_process.php" method="POST">
             <div class="form-group">

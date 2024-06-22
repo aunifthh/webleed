@@ -1,28 +1,25 @@
 <?php
 session_start();
-
-// Check if the user is logged in as a staff member
-if (!isset($_SESSION['staffID'])) {
-    // If not, redirect to the login page
-    header("Location: login.php");
-    exit();
-}
-
-// Include the database connection file
 include('connection.php');
 
-// Fetch staff information from the database
-$query = "SELECT * FROM staff";
+// Fetch staff details from the database
+$query = "SELECT staff.staffID, staff.staffName, staff.staffPhoneNo, bloodcenter.BCName 
+          FROM staff 
+          JOIN bloodcenter ON staff.BCID = bloodcenter.BCID";
 $result = mysqli_query($condb, $query);
-?>
 
+if (!$result) {
+    die('Error fetching staff data: ' . mysqli_error($condb));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Details - WeBleed</title>
+    <title>Staff Details</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
 <body>
     <nav class="navbar">
@@ -32,45 +29,44 @@ $result = mysqli_query($condb, $query);
         </div>
         <div class="navbar_content">
             <ul>
-                <li><a href="home_staff.php">Home</a></li>
+                <li><a href="staff_details.php">Staff Details</a></li>
+                <li><a href="staff_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>
-    <div class="staff-section">
-        <h2>Staff Details</h2>
+    <div class="staff-details-section">
+        <h2>Staff List</h2>
         <a href="add_staff.php" class="button">Add New Staff</a>
         <table>
             <thead>
                 <tr>
                     <th>Staff ID</th>
-                    <th>Staff Name</th>
+                    <th>Name</th>
                     <th>Phone Number</th>
+                    <th>Blood Center</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <?php
-                if ($result && mysqli_num_rows($result) > 0) {
-                    while ($staff = mysqli_fetch_assoc($result)) {
-                        echo "<tr>";
-                        echo "<td>" . $staff['staffID'] . "</td>";
-                        echo "<td>" . $staff['staffName'] . "</td>";
-                        echo "<td>" . $staff['staffPhoneNo'] . "</td>";
-                        echo "<td>
-                                <a href='edit_staff.php?id=" . $staff['staffID'] . "' class='button'>Edit</a>
-                                <a href='delete_staff.php?id=" . $staff['staffID'] . "' class='button'>Delete</a>
-                              </td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='4'>No staff members found.</td></tr>";
-                }
-
-                mysqli_close($condb);
-                ?>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                <tr>
+                    <td><?php echo $row['staffID']; ?></td>
+                    <td><?php echo $row['staffName']; ?></td>
+                    <td><?php echo $row['staffPhoneNo']; ?></td>
+                    <td><?php echo $row['BCName']; ?></td>
+                    <td>
+                        <a href="edit_staff.php?staffID=<?php echo $row['staffID']; ?>" class="button">Edit</a>
+                        <a href="delete_staff.php?staffID=<?php echo $row['staffID']; ?>" class="button">Delete</a>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
             </tbody>
         </table>
     </div>
 </body>
 </html>
+
+<?php
+mysqli_close($condb);
+?>
