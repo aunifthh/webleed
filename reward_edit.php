@@ -43,6 +43,20 @@ mysqli_close($condb);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo_item">
+            <img src="logo.jpg" alt="Company Logo">
+            <span>WeBleed</span>
+        </div>
+        <div class="navbar_content">
+            <ul>
+                <li><a href="home_staff.php">Home</a></li>
+                <li><a href="staff_profile.php">Profile</a></li>
+                <li><a href="logout.php">Logout</a></li>
+                <li></li>
+            </ul>
+        </div>
+    </nav>
     <div class="edit-section">
         <h2>Edit Reward Details</h2>
         <form action="" method="POST">
