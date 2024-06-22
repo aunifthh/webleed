@@ -92,6 +92,28 @@ mysqli_close($condb);
         </div>
     </div>
 
+    <div class = "profile-container">
+        <h2> Claimable Reward !</h2>
+        <?php
+            if ($donor['rewardID'] == 6000) {
+                echo 'No Rewards';
+            } 
+            else if ($donor['rewardID'] == 6001) {
+                echo 'Free 1 outpatient treatment and 1 medical treatment';
+            } 
+            else if ($donor['rewardID'] == 6002) {
+                echo 'Free 1 outpatient treatment and 2nd class wards for a period of 4 months';
+            } 
+            else if ($donor['rewardID'] == 6003) {
+                echo 'Free 3 outpatient treatment and 2nd class medical treatment for a 6 month period';
+            } 
+            else if ($donor['rewardID'] == 6004) {
+                echo 'Free 1 year outpatient treatment, free Influenza Vaccine and 2nd class medical treatment for a 8 month period';
+            } 
+            ?>
+
+    </div>
+
     <footer>
         <img src="bottom.png" alt="Footer Image">
         <p>&copy; 2024 WeBleed - Blood Donation Website</p>
