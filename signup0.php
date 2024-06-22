@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_query($condb, $insert_query)) {
         echo "<script>
-                alert('Sign Up successful.');
+                alert('Sign Up successfully.');
                 window.location.href = 'login.php';
               </script>";
     } else {
