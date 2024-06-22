@@ -50,6 +50,7 @@ mysqli_close($condb);
         </div>
         <div class="navbar_content">
             <ul>
+                <li><a href="view_reward.php">Reward Details</a></li>
                 <li><a href="home_staff.php">Home</a></li>
                 <li><a href="staff_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
