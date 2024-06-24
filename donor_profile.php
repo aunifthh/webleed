@@ -92,7 +92,7 @@ mysqli_close($condb);
         </div>
     </div>
 
-    <div class = "profile-container">
+    <div class = "edit-section">
         <h2> Claimable Reward !</h2>
         <?php
             if ($donor['donFrequency'] == 0) {

@@ -50,6 +50,7 @@
             <div class="form-group">
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
                     <option value="M">Male</option>
                     <option value="F">Female</option>
                 </select>
@@ -58,6 +59,7 @@
             <div class="form-group">
                 <label for="bloodtype">Blood Type:</label>
                 <select id="bloodtype" name="bloodtype" required>
+                    <option value="">Select Blood Type</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
                     <option value="O">O</option>
