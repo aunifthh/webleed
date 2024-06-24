@@ -95,19 +95,19 @@ mysqli_close($condb);
     <div class = "profile-container">
         <h2> Claimable Reward !</h2>
         <?php
-            if ($donor['rewardID'] == 6000) {
+            if ($donor['donFrequency'] == 0) {
                 echo 'No Rewards';
             } 
-            else if ($donor['rewardID'] == 6001) {
+            else if ($donor['donFrequency'] == 1) {
                 echo 'Free 1 outpatient treatment and 1 medical treatment';
             } 
-            else if ($donor['rewardID'] == 6002) {
+            else if ($donor['donFrequency'] == 2) {
                 echo 'Free 1 outpatient treatment and 2nd class wards for a period of 4 months';
             } 
-            else if ($donor['rewardID'] == 6003) {
+            else if ($donor['donFrequency'] == 3) {
                 echo 'Free 3 outpatient treatment and 2nd class medical treatment for a 6 month period';
             } 
-            else if ($donor['rewardID'] == 6004) {
+            else if ($donor['donFrequency'] == 4) {
                 echo 'Free 1 year outpatient treatment, free Influenza Vaccine and 2nd class medical treatment for a 8 month period';
             } 
             ?>

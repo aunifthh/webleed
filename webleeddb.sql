@@ -88,16 +88,15 @@ CREATE TABLE `donor` (
   `donWeight` int(3) NOT NULL,
   `donFrequency` int(1) NOT NULL,
   `eligibleStatus` char(1) NOT NULL,
-  `staffID` int(4) NOT NULL,
-  `rewardID` int(4) NOT NULL
+  `staffID` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table `donor`
 
-INSERT INTO `donor` (`donID`, `donPassword`, `donName`, `donGender`, `donAge`, `donBloodType`, `donBloodQty`, `donWeight`, `donFrequency`, `eligibleStatus`, `staffID`, `rewardID`) VALUES
-(3616, 'password', 'Amir', 'M', 27, 'A', 0, 77, 0, '', 2001, 6000),
-(3001, 'password', 'Mira', 'F', 30, 'A', 1, 70, 3, 'Y', 2001, 6003),
-(3002, 'password', 'Ali', 'M', 28, 'O', 1, 65, 2, 'Y', 2002, 6002);
+INSERT INTO `donor` (`donID`, `donPassword`, `donName`, `donGender`, `donAge`, `donBloodType`, `donBloodQty`, `donWeight`, `donFrequency`, `eligibleStatus`, `staffID`) VALUES
+(3616, 'password', 'Amir', 'M', 27, 'A', 0, 77, 0, '', 2001),
+(3001, 'password', 'Mira', 'F', 30, 'A', 1, 70, 3, 'Y', 2001),
+(3002, 'password', 'Ali', 'M', 28, 'O', 1, 65, 2, 'Y', 2002);
 
 -- --------------------------------------------------------
 
@@ -147,8 +146,8 @@ ALTER TABLE `bloodsample`
 -- Indexes for table `donor`
 ALTER TABLE `donor`
   ADD PRIMARY KEY (`donID`),
-  ADD KEY `staffID` (`staffID`),
-  ADD KEY `rewardID` (`rewardID`);
+  ADD KEY `staffID` (`staffID`);
+
 
 -- Indexes for table `healthcareprovider`
 ALTER TABLE `healthcareprovider`
@@ -172,8 +171,8 @@ ALTER TABLE `bloodsample`
 
 -- Constraints for table `donor`
 ALTER TABLE `donor`
-  ADD CONSTRAINT `donor_ibfk_1` FOREIGN KEY (`staffID`) REFERENCES `staff` (`staffID`),
-  ADD CONSTRAINT `donor_ibfk_2` FOREIGN KEY (`rewardID`) REFERENCES `reward` (`rewardID`);
+  ADD CONSTRAINT `donor_ibfk_1` FOREIGN KEY (`staffID`) REFERENCES `staff` (`staffID`);
+
 
 
 -- Constraints for table `healthcareprovider`
