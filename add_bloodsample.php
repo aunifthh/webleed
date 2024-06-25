@@ -65,7 +65,7 @@ mysqli_close($condb);
     </div>
 </nav>
 
-<div class="add-section">
+<div class="edit-section">
     <h2>Add New Blood Sample</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
         <div class="form-group">

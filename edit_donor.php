@@ -86,7 +86,7 @@ if (!$staff_result) {
             <input type="text" id="eligibleStatus" name="eligibleStatus" placeholder="Y: Yes, eligible  N: Not eligible" value="<?php echo $donor['eligibleStatus']; ?>">
         </div>
         <div class="form-group">
-            <label for="staffID">Staff ID:</label>
+            <label for="staffID">Staff Name:</label>
             <select id="staffID" name="staffID" required>
                 <?php while ($staff = mysqli_fetch_assoc($staff_result)): ?>
                     <option value="<?php echo $staff['staffID']; ?>" <?php if ($staff['staffID'] == $donor['staffID']) echo 'selected'; ?>>
