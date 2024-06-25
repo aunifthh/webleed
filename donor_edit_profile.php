@@ -31,13 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gender = $_POST['gender'];
     $weight = $_POST['weight'];
     $bloodtype = $_POST['bloodtype'];
-    $bloodqty = $_POST['bloodqty'];
-    $frequency = $_POST['frequency'];
 
     // Update donor information in the database
     $update_query = "UPDATE donor SET donName = '$name', donAge = '$age', donGender = '$gender', 
-                    donWeight = '$weight', donBloodType = '$bloodtype', donBloodQty = '$bloodqty', 
-                    donFrequency = '$frequency' WHERE donID = '$donid'";
+                    donWeight = '$weight', donBloodType = '$bloodtype' WHERE donID = '$donid'";
 
     if (mysqli_query($condb, $update_query)) {
         // Use JavaScript for alert and redirect
@@ -58,7 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
-
 <body>
     <nav class="navbar">
         <div class="logo_item">
@@ -87,11 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($donor['donName']); ?>">
             </div>
             <div class="form-group">
                 <label for="age">Age:</label>
-                <input type="text" id="age" name="age">
+                <input type="text" id="age" name="age" value="<?php echo htmlspecialchars($donor['donAge']); ?>">
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
@@ -102,16 +97,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="weight">Weight:</label>
-                <input type="text" id="weight" name="weight">
+                <input type="text" id="weight" name="weight" value="<?php echo htmlspecialchars($donor['donWeight']); ?>">
             </div>
             <div class="form-group">
                 <label for="bloodtype">Blood Type:</label>
-                <input type="text" id="bloodtype" name="bloodtype">
+                <select id="bloodtype" name="bloodtype">
+                    <option value="A" <?php if ($donor['donBloodType'] == 'A') echo 'selected'; ?>>A</option>
+                    <option value="B" <?php if ($donor['donBloodType'] == 'B') echo 'selected'; ?>>B</option>
+                    <option value="AB" <?php if ($donor['donBloodType'] == 'AB') echo 'selected'; ?>>AB</option>
+                    <option value="O" <?php if ($donor['donBloodType'] == 'O') echo 'selected'; ?>>O</option>
+                </select>
             </div>
             
             <button type="submit">Update Profile</button>
         </form>
     </div>
 </body>
-
 </html>
