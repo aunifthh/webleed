@@ -28,7 +28,7 @@ if (!$bc_result) {
     </div>
     <div class="navbar_content">
         <ul>
-            <li><a href="staff_details.php">Staff Details</a></li>
+            <li><a href="donor_details.php">Donor Details</a></li>
             <li><a href="staff_profile.php">Profile</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>

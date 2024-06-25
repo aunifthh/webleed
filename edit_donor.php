@@ -31,8 +31,9 @@ if (!$staff_result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Donor Details</title>
+    <title>WeBleed</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
 <body>
 <nav class="navbar">
@@ -54,31 +55,31 @@ if (!$staff_result) {
         <input type="hidden" name="donID" value="<?php echo $donor['donID']; ?>">
         <div class="form-group">
             <label for="donName">Name:</label>
-            <input type="text" id="donName" name="donName" value="<?php echo $donor['donName']; ?>" required>
+            <input type="text" id="donName" name="donName" value="<?php echo $donor['donName']; ?>">
         </div>
         <div class="form-group">
             <label for="donAge">Age:</label>
-            <input type="number" id="donAge" name="donAge" value="<?php echo $donor['donAge']; ?>" required>
+            <input type="number" id="donAge" name="donAge" value="<?php echo $donor['donAge']; ?>">
         </div>
         <div class="form-group">
             <label for="donWeight">Weight:</label>
-            <input type="number" id="donWeight" name="donWeight" value="<?php echo $donor['donWeight']; ?>" required>
+            <input type="number" id="donWeight" name="donWeight" value="<?php echo $donor['donWeight']; ?>">
         </div>
         <div class="form-group">
             <label for="donBloodType">Blood Type:</label>
-            <input type="text" id="donBloodType" name="donBloodType" value="<?php echo $donor['donBloodType']; ?>" required>
+            <input type="text" id="donBloodType" name="donBloodType" value="<?php echo $donor['donBloodType']; ?>">
         </div>
         <div class="form-group">
             <label for="donBloodQty">Blood Quantity:</label>
-            <input type="number" id="donBloodQty" name="donBloodQty" value="<?php echo $donor['donBloodQty']; ?>" required>
+            <input type="number" id="donBloodQty" name="donBloodQty" value="<?php echo $donor['donBloodQty']; ?>">
         </div>
         <div class="form-group">
             <label for="donFrequency">Donation Frequency:</label>
-            <input type="number" id="donFrequency" name="donFrequency" value="<?php echo $donor['donFrequency']; ?>" required>
+            <input type="number" id="donFrequency" name="donFrequency" value="<?php echo $donor['donFrequency']; ?>">
         </div>
         <div class="form-group">
             <label for="eligibleStatus">Eligible Status:</label>
-            <input type="text" id="eligibleStatus" name="eligibleStatus" value="<?php echo $donor['eligibleStatus']; ?>" required>
+            <input type="text" id="eligibleStatus" name="eligibleStatus" placeholder="Y: Yes, eligible  N: Not eligible" value="<?php echo $donor['eligibleStatus']; ?>">
         </div>
         <div class="form-group">
             <label for="staffID">Staff ID:</label>
@@ -89,10 +90,6 @@ if (!$staff_result) {
                     </option>
                 <?php endwhile; ?>
             </select>
-        </div>
-        <div class="form-group">
-            <label for="rewardID">Reward ID:</label>
-            <input type="number" id="rewardID" name="rewardID" value="<?php echo $donor['rewardID']; ?>" required>
         </div>
         <button type="submit">Update Donor</button>
     </form>

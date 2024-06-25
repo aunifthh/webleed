@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $donFrequency = mysqli_real_escape_string($condb, $_POST['donFrequency']);
     $eligibleStatus = mysqli_real_escape_string($condb, $_POST['eligibleStatus']);
     $staffID = mysqli_real_escape_string($condb, $_POST['staffID']);
-    $rewardID = mysqli_real_escape_string($condb, $_POST['rewardID']);
+    
 
     $query = "UPDATE donor SET 
               donName='$donName', 
@@ -26,8 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               donBloodQty='$donBloodQty',
               donFrequency='$donFrequency',
               eligibleStatus='$eligibleStatus',
-              staffID='$staffID',
-              rewardID='$rewardID' 
+              staffID='$staffID'
               WHERE donID='$donID'";
 
     if (mysqli_query($condb, $query)) {
