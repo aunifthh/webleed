@@ -83,6 +83,7 @@ CREATE TABLE `donor` (
   `donName` varchar(45) NOT NULL,
   `donGender` char(1) NOT NULL,
   `donAge` int(3) NOT NULL,
+  `donPhoneNo` varchar(12) NOT NULL,
   `donBloodType` varchar(2) NOT NULL,
   `donBloodQty` int(3) NOT NULL,
   `donWeight` int(3) NOT NULL,
@@ -93,10 +94,10 @@ CREATE TABLE `donor` (
 
 -- Dumping data for table `donor`
 
-INSERT INTO `donor` (`donID`, `donPassword`, `donName`, `donGender`, `donAge`, `donBloodType`, `donBloodQty`, `donWeight`, `donFrequency`, `eligibleStatus`, `staffID`) VALUES
-(3616, 'password', 'Amir', 'M', 27, 'A', 0, 77, 0, '', 2001),
-(3001, 'password', 'Mira', 'F', 30, 'A', 1, 70, 3, 'Y', 2001),
-(3002, 'password', 'Ali', 'M', 28, 'O', 1, 65, 2, 'Y', 2002);
+INSERT INTO `donor` (`donID`, `donPassword`, `donName`, `donGender`, `donAge`, `donPhoneNo`, `donBloodType`, `donBloodQty`, `donWeight`, `donFrequency`, `eligibleStatus`, `staffID`) VALUES
+(3616, 'password', 'Amir', 'M', 27, '0158743621','A', 0, 77, 0, '', 2001),
+(3001, 'password', 'Mira', 'F', 30,'0112489750', 'A', 1, 70, 3, 'Y', 2001),
+(3002, 'password', 'Ali', 'M', 28,'0123587410', 'O', 1, 65, 2, 'Y', 2002);
 
 -- --------------------------------------------------------
 

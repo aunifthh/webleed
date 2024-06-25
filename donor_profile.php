@@ -57,6 +57,7 @@ mysqli_close($condb);
             <p><strong>ID:</strong> <?php echo $donor['donID']; ?></p>
             <p><strong>Name:</strong> <?php echo $donor['donName']; ?></p>
             <p><strong>Age:</strong> <?php echo $donor['donAge']; ?></p>
+            <p><strong>Phone Number:</strong> <?php echo $donor['donPhoneNo']; ?></p>
             <p><strong>Gender:</strong> 
             <?php
             if ($donor['donGender'] == 'M') {
@@ -67,7 +68,6 @@ mysqli_close($condb);
             ?>
             </p>
             <p><strong>Weight:</strong> <?php echo $donor['donWeight']; ?></p>
-            <!--<p><strong>Phone Number:</strong> <?php echo $donor['donPhoneNo']; ?></p> -->
             <p><strong>Eligible status:</strong> <!--<?php echo $donor['eligibleStatus']; ?> -->
            
             <?php

@@ -29,11 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $age = $_POST['age'];
     $gender = $_POST['gender'];
+    $phoneno = $_POST['phoneno'];
     $weight = $_POST['weight'];
     $bloodtype = $_POST['bloodtype'];
 
     // Update donor information in the database
-    $update_query = "UPDATE donor SET donName = '$name', donAge = '$age', donGender = '$gender', 
+    $update_query = "UPDATE donor SET donName = '$name', donAge = '$age', donGender = '$gender', donPhoneNo = '$phoneno',
                     donWeight = '$weight', donBloodType = '$bloodtype' WHERE donID = '$donid'";
 
     if (mysqli_query($condb, $update_query)) {
@@ -94,6 +95,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <option value="M" <?php if ($donor['donGender'] == 'M') echo 'selected'; ?>>Male</option>
                     <option value="F" <?php if ($donor['donGender'] == 'F') echo 'selected'; ?>>Female</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="phoneno">Phone Number:</label>
+                <input type="text" id="phoneno" name="phoneno">
             </div>
             <div class="form-group">
                 <label for="weight">Weight:</label>
