@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $donID = mysqli_real_escape_string($condb, $_POST['donID']);
     $donName = mysqli_real_escape_string($condb, $_POST['donName']);
     $donAge = mysqli_real_escape_string($condb, $_POST['donAge']);
+    $donPhoneNo = mysqli_real_escape_string($condb, $_POST['donPhoneNo']);
     $donWeight = mysqli_real_escape_string($condb, $_POST['donWeight']);
     $donBloodType = mysqli_real_escape_string($condb, $_POST['donBloodType']);
     $donBloodQty = mysqli_real_escape_string($condb, $_POST['donBloodQty']);
@@ -21,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $query = "UPDATE donor SET 
               donName='$donName', 
               donAge='$donAge', 
+              donPhoneNo = '$donPhoneNo',
               donWeight='$donWeight',
               donBloodType='$donBloodType',
               donBloodQty='$donBloodQty',

@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $donName = mysqli_real_escape_string($condb, $_POST['donName']);
     $donGender = mysqli_real_escape_string($condb, $_POST['donGender']);
     $donAge = mysqli_real_escape_string($condb, $_POST['donAge']);
+    $donPhoneNo = mysqli_real_escape_string($condb, $_POST['donPhoneNo']);
     $donBloodType = mysqli_real_escape_string($condb, $_POST['donBloodType']);
     $donBloodQty = mysqli_real_escape_string($condb, $_POST['donBloodQty']);
     $donWeight = mysqli_real_escape_string($condb, $_POST['donWeight']);
@@ -23,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Insert into donor table, with NULL value for rewardID if not provided
-    $query = "INSERT INTO donor (donID, donPassword, donName, donGender, donAge, donBloodType, donBloodQty, donWeight, donFrequency, eligibleStatus, staffID, rewardID) 
-              VALUES ('$donID', '$donPassword', '$donName', '$donGender', '$donAge', '$donBloodType', '$donBloodQty', '$donWeight', '$donFrequency', '$eligibleStatus', '$staffID', ";
+    $query = "INSERT INTO donor (donID, donPassword, donName, donGender, donAge, donPhoneNo, donBloodType, donBloodQty, donWeight, donFrequency, eligibleStatus, staffID, rewardID) 
+              VALUES ('$donID', '$donPassword', '$donName', '$donGender', '$donAge', '$donPhoneNo', '$donBloodType', '$donBloodQty', '$donWeight', '$donFrequency', '$eligibleStatus', '$staffID', ";
 
     if (!empty($rewardID)) {
         // If rewardID is provided, include it in the INSERT statement

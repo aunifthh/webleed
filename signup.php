@@ -48,6 +48,11 @@
             </div>
 
             <div class="form-group">
+                <label for="Phone Number">Phone Number:</label>
+                <input type="text" name="phoneno" placeholder="(Eg: 0126574120)" required>
+            </div>
+
+            <div class="form-group">
                 <label for="gender">Gender:</label>
                 <select id="gender" name="gender" required>
                     <option value="">Select Gender</option>

@@ -61,6 +61,10 @@ if (!$bc_result) {
             <input type="number" id="donAge" name="donAge" required>
         </div>
         <div class="form-group">
+            <label for="donPhoneNo">Phone Number:</label>
+            <input type="text" id="donPhoneNo" name="donPhoneNo" required>
+        </div>
+        <div class="form-group">
             <label for="donBloodType">Blood Type:</label>
             <input type="text" id="donBloodType" name="donBloodType" required>
         </div>

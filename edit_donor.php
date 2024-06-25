@@ -62,6 +62,10 @@ if (!$staff_result) {
             <input type="number" id="donAge" name="donAge" value="<?php echo $donor['donAge']; ?>">
         </div>
         <div class="form-group">
+            <label for="donPhoneNo">Phone Number:</label>
+            <input type="text" id="donPhoneNo" name="donPhoneNo" value="<?php echo $donor['donPhoneNo']; ?>">
+        </div>
+        <div class="form-group">
             <label for="donWeight">Weight:</label>
             <input type="number" id="donWeight" name="donWeight" value="<?php echo $donor['donWeight']; ?>">
         </div>

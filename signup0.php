@@ -5,6 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
     $name = $_POST['name'];
     $age = $_POST['age'];
+    $phoneno = $_POST['phoneno'];
     $gender = $_POST['gender'];
     $bloodtype = $_POST['bloodtype'];
     $weight = $_POST['weight'];
@@ -22,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Insert the new donor into the database
-    $insert_query = "INSERT INTO donor (donID, donName, donAge, donGender, donWeight, donBloodType, donPassword, staffID) 
-                     VALUES ('$id', '$name', '$age', '$gender', '$weight', '$bloodtype', '$password', '$staffID')";
+    $insert_query = "INSERT INTO donor (donID, donName, donAge, donPhoneNo, donGender, donWeight, donBloodType, donPassword, staffID) 
+                     VALUES ('$id', '$name', '$age', '$phoneno','$gender', '$weight', '$bloodtype', '$password', '$staffID')";
 
     if (mysqli_query($condb, $insert_query)) {
         echo "<script>
