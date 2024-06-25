@@ -3,7 +3,7 @@ session_start();
 include('connection.php');
 
 // Fetch donor details from the database
-$query = "SELECT donor.donID, donor.donName, donor.donBloodType, donor.donBloodQty, donor.donWeight, donor.donFrequency, donor.eligibleStatus, bloodcenter.bcName 
+$query = "SELECT donor.donID, donor.donName, donor.donAge, donor.donPhoneNo, donor.donBloodType, donor.donBloodQty, donor.donWeight, donor.donFrequency, donor.eligibleStatus, bloodcenter.bcName 
           FROM donor 
           JOIN staff ON donor.staffID = staff.staffID 
           JOIN bloodcenter ON staff.bcID = bloodcenter.bcID";
@@ -44,6 +44,8 @@ if (!$result) {
                 <tr>
                     <th>Donor ID</th>
                     <th>Name</th>
+                    <th>Age</th>
+                    <th>Phone Number</th>
                     <th>Blood Type</th>
                     <th>Blood Quantity</th>
                     <th>Weight</th>
@@ -58,6 +60,8 @@ if (!$result) {
                 <tr>
                     <td><?php echo $row['donID']; ?></td>
                     <td><?php echo $row['donName']; ?></td>
+                    <td><?php echo $row['donAge']; ?></td>
+                    <td><?php echo $row['donPhoneNo']; ?></td>
                     <td><?php echo $row['donBloodType']; ?></td>
                     <td><?php echo $row['donBloodQty']; ?></td>
                     <td><?php echo $row['donWeight']; ?></td>
