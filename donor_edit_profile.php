@@ -98,8 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="phoneno">Phone Number:</label>
-                <input type="text" id="phoneno" name="phoneno">
+                <input type="text" id="phoneno" name="phoneno" value="<?php echo htmlspecialchars($donor['donPhoneNo']); ?>">
             </div>
+
             <div class="form-group">
                 <label for="weight">Weight:</label>
                 <input type="text" id="weight" name="weight" value="<?php echo htmlspecialchars($donor['donWeight']); ?>">
