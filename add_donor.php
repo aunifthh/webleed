@@ -83,6 +83,7 @@ if (!$bc_result) {
                 <option value="1">Once a year</option>
                 <option value="2">Twice a year</option>
                 <option value="3">Thrice a year</option>
+                <option value="4">4 times a year</option>
             </select>
         </div>
         <div class="form-group">
@@ -92,10 +93,6 @@ if (!$bc_result) {
         <div class="form-group">
             <label for="staffID">Staff ID:</label>
             <input type="text" id="staffID" name="staffID" required>
-        </div>
-        <div class="form-group">
-            <label for="rewardID">Reward ID:</label>
-            <input type="text" id="rewardID" name="rewardID">
         </div>
         <button type="submit">Add Donor</button>
     </form>
