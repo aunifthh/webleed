@@ -22,9 +22,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+    // Check if donID already exists in the database
+    $check_query = "SELECT donID FROM donor WHERE donID = '$id'";
+    $check_result = mysqli_query($condb, $check_query);
+
+    if (mysqli_num_rows($check_result) > 0) {
+        echo "<script>
+                alert('ID already exists. Please use a different ID.');
+                window.history.back();
+              </script>";
+        exit();
+    }
+
     // Insert the new donor into the database
     $insert_query = "INSERT INTO donor (donID, donName, donAge, donPhoneNo, donGender, donWeight, donBloodType, donPassword, staffID) 
-                     VALUES ('$id', '$name', '$age', '$phoneno','$gender', '$weight', '$bloodtype', '$password', '$staffID')";
+                     VALUES ('$id', '$name', '$age', '$phoneno', '$gender', '$weight', '$bloodtype', '$password', '$staffID')";
 
     if (mysqli_query($condb, $insert_query)) {
         echo "<script>
