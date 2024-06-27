@@ -24,6 +24,13 @@ if ($result && mysqli_num_rows($result) > 0) {
 }
 
 mysqli_close($condb);
+
+// Function to mask the password
+function mask_password($password) {
+    return str_repeat('*', strlen($password));
+}
+
+$masked_password = mask_password($hp['hpPassword']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,11 +58,11 @@ mysqli_close($condb);
     <div class="profile-container">
         <h2>Healthcare Provider Profile</h2>
         <div class="profile-pic">
-                <img src="nopfp.png" alt="Profile Picture">
+            <img src="nopfp.png" alt="Profile Picture">
         </div>
         <div class="profile-info">
             <p><strong>ID:</strong> <?php echo $hp['hpID']; ?></p>
-            <p><strong>Password:</strong> <?php echo $hp['hpPassword']; ?></p>
+            <p><strong>Password:</strong> <?php echo $masked_password; ?></p>
             <p><strong>Sample Number:</strong> <?php echo $hp['sampleNo']; ?></p>
         </div>
         <div class="profile-actions">

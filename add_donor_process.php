@@ -16,24 +16,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $eligibleStatus = mysqli_real_escape_string($condb, $_POST['eligibleStatus']);
     $staffID = mysqli_real_escape_string($condb, $_POST['staffID']);
 
-    // Check if rewardID is set in $_POST
-    if (isset($_POST['rewardID'])) {
-        $rewardID = mysqli_real_escape_string($condb, $_POST['rewardID']);
-    } else {
-        $rewardID = null; // Set default value or handle error scenario
+    // Check if donID already exists in the database
+    $check_query = "SELECT donID FROM donor WHERE donID='$donID'";
+    $check_result = mysqli_query($condb, $check_query);
+
+    if (mysqli_num_rows($check_result) > 0) {
+        echo "<script>
+                alert('Donor ID already exists.');
+                window.history.back();
+              </script>";
+        exit();
     }
 
-    // Insert into donor table, with NULL value for rewardID if not provided
-    $query = "INSERT INTO donor (donID, donPassword, donName, donGender, donAge, donPhoneNo, donBloodType, donBloodQty, donWeight, donFrequency, eligibleStatus, staffID, rewardID) 
-              VALUES ('$donID', '$donPassword', '$donName', '$donGender', '$donAge', '$donPhoneNo', '$donBloodType', '$donBloodQty', '$donWeight', '$donFrequency', '$eligibleStatus', '$staffID', ";
-
-    if (!empty($rewardID)) {
-        // If rewardID is provided, include it in the INSERT statement
-        $query .= "'$rewardID')";
-    } else {
-        // If rewardID is not provided, insert NULL
-        $query .= "NULL)";
-    }
+    // Insert into donor table
+    $query = "INSERT INTO donor (donID, donPassword, donName, donGender, donAge, donPhoneNo, donBloodType, donBloodQty, donWeight, donFrequency, eligibleStatus, staffID) 
+              VALUES ('$donID', '$donPassword', '$donName', '$donGender', '$donAge', '$donPhoneNo', '$donBloodType', '$donBloodQty', '$donWeight', '$donFrequency', '$eligibleStatus', '$staffID')";
 
     if (mysqli_query($condb, $query)) {
         echo "<script>

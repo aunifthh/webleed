@@ -47,7 +47,7 @@ mysqli_close($condb);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeBleed - Add Blood Sample</title>
+    <title>WeBleed</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
@@ -59,6 +59,7 @@ mysqli_close($condb);
     </div>
     <div class="navbar_content">
         <ul>
+            <li><a href="bloodsample_details.php">Blood Sample Details</a></li>
             <li><a href="home_staff.php">Home</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>

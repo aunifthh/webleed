@@ -44,6 +44,7 @@ if (isset($_GET['bcID'])) {
         </div>
         <div class="navbar_content">
             <ul>
+                <li><a href="bloodcenter_details.php">Blood Center Details</a></li>
                 <li><a href="home_staff.php">Home</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>

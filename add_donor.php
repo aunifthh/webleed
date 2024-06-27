@@ -9,6 +9,14 @@ $bc_result = mysqli_query($condb, $bc_query);
 if (!$bc_result) {
     die('Error fetching blood centers: ' . mysqli_error($condb));
 }
+
+// Fetch available staff
+$staff_query = "SELECT staffID, staffName FROM staff";
+$staff_result = mysqli_query($condb, $staff_query);
+
+if (!$staff_result) {
+    die('Error fetching staff: ' . mysqli_error($condb));
+}
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +60,7 @@ if (!$bc_result) {
         <div class="form-group">
             <label for="donGender">Gender:</label>
             <select id="donGender" name="donGender" required>
+                <option value="">Select Gender</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
             </select>
@@ -66,7 +75,13 @@ if (!$bc_result) {
         </div>
         <div class="form-group">
             <label for="donBloodType">Blood Type:</label>
-            <input type="text" id="donBloodType" name="donBloodType" required>
+            <select id="donBloodType" name="donBloodType" required>
+                <option value="">Select Blood Type</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="O">O</option>
+                <option value="AB">AB</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="donBloodQty">Blood Quantity:</label>
@@ -88,11 +103,17 @@ if (!$bc_result) {
         </div>
         <div class="form-group">
             <label for="eligibleStatus">Eligible Status:</label>
-            <input type="text" id="eligibleStatus" name="eligibleStatus" required>
+            <input type="text" id="eligibleStatus" name="eligibleStatus" placeholder="Y: Yes, eligible   N: Not eligible" required>
         </div>
         <div class="form-group">
-            <label for="staffID">Staff ID:</label>
-            <input type="text" id="staffID" name="staffID" required>
+            <label for="staffID">Staff Name:</label>
+            <select id="staffID" name="staffID" required>
+                <?php while ($staff = mysqli_fetch_assoc($staff_result)): ?>
+                    <option value="<?php echo $staff['staffID']; ?>">
+                        <?php echo $staff['staffName']; ?>
+                    </option>
+                <?php endwhile; ?>
+            </select>
         </div>
         <button type="submit">Add Donor</button>
     </form>

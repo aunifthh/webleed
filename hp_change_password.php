@@ -67,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="navbar_content">
             <ul>
+                <li><a href="hp_profile.php">Profile</a></li>
                 <li><a href="home_hp.php">Home</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
