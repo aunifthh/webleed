@@ -9,7 +9,6 @@ if (!isset($_SESSION['donID'])) {
 include('connection.php');
 
 $donID = $_SESSION['donID'];
-$donAge = $_POST['donAge'];
 $donWeight = $_POST['donWeight'];
 $isEligible = $_POST['isEligible'];
 
@@ -22,9 +21,9 @@ if ($pregnant === 'yes') {
 }
 
 // Update the eligibility status in the database
-$query = "UPDATE donor SET donAge = ?, donWeight = ?, eligibleStatus = ? WHERE donID = ?";
+$query = "UPDATE donor SET  donWeight = ?, eligibleStatus = ? WHERE donID = ?";
 $stmt = $condb->prepare($query);
-$stmt->bind_param("iisi", $donAge, $donWeight, $isEligible, $donID);
+$stmt->bind_param("isi", $donWeight, $isEligible, $donID);
 
 if ($stmt->execute()) {
     echo "Eligibility status updated successfully.";
