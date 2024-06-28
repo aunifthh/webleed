@@ -1,3 +1,39 @@
+<?php
+session_start();
+
+// Check if the user is logged in as a donor
+if (!isset($_SESSION['donID'])) {
+    // If not, redirect to login page
+    header("Location: login.php");
+    exit();
+}
+
+include('connection.php');
+
+// Fetch donor information from the database
+$donid = $_SESSION['donID'];
+
+$query = "SELECT * FROM donor WHERE donID = '$donid'";
+$result = mysqli_query($condb, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $donor = mysqli_fetch_assoc($result);
+} else {
+    echo "Error fetching donor data.";
+    exit();
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collect form data
+    
+    $age = $_POST['age'];
+    
+    mysqli_close($condb);
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,9 +63,10 @@
     <div class="edit-section">
         <h1>Blood Donation Eligibility Test</h1>
         <form id="eligibilityForm" method="POST" action="check_eligible.php">
+    
             <label for="age">Age:</label>
-            <input type="number" id="age" name="age" value="<?php echo $donor['donAge']; ?>" required><br><br>
-
+            <span id="age"><?php echo htmlspecialchars($donor['donAge']); ?></span>
+    
             <label for="weight">Weight (kg):</label>
             <input type="number" id="weight" name="weight" value="<?php echo $donor['donWeight']; ?>" required><br><br>
 
