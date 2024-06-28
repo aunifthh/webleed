@@ -26,16 +26,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = mysqli_real_escape_string($condb, $_POST['status']);
     $bcID = mysqli_real_escape_string($condb, $_POST['bcID']);
 
-    $insert_query = "INSERT INTO bloodsample (sampleNo, bloodType, status, bcID) 
-                     VALUES ('$sampleNo', '$bloodType', '$status', '$bcID')";
+    // Check if the sampleNo already exists
+    $check_query = "SELECT * FROM bloodsample WHERE sampleNo = '$sampleNo'";
+    $check_result = mysqli_query($condb, $check_query);
 
-    if (mysqli_query($condb, $insert_query)) {
-        echo "<script>alert('Blood sample added successfully.');</script>";
-        mysqli_close($condb);
-        header("Location: bloodsample_details.php");
-        exit();
+    if (mysqli_num_rows($check_result) > 0) {
+        echo "<script>alert('Sample number already exists. Please enter a unique sample number.');</script>";
     } else {
-        echo "<script>alert('Error adding blood sample: " . mysqli_error($condb) . "');</script>";
+        $insert_query = "INSERT INTO bloodsample (sampleNo, bloodType, status, bcID) 
+                         VALUES ('$sampleNo', '$bloodType', '$status', '$bcID')";
+
+        if (mysqli_query($condb, $insert_query)) {
+            echo "<script>alert('Blood sample added successfully.');</script>";
+            mysqli_close($condb);
+            header("Location: bloodsample_details.php");
+            exit();
+        } else {
+            echo "<script>alert('Error adding blood sample: " . mysqli_error($condb) . "');</script>";
+        }
     }
 }
 
@@ -75,18 +83,28 @@ mysqli_close($condb);
         </div>
         <div class="form-group">
             <label for="bloodType">Blood Type:</label>
-            <input type="text" id="bloodType" name="bloodType" required>
+            <select id="bloodType" name="bloodType" required>
+                <option value="">Select Blood Type</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="O">O</option>
+                <option value="AB">AB</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="status">Status:</label>
-            <input type="text" id="status" name="status" required>
+            <select id="status" name="status" required>
+                <option value="">Select Status</option>
+                <option value="Available">Available</option>
+                <option value="Unavailable">Unavailable</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="bcID">Blood Center:</label>
             <select id="bcID" name="bcID" required>
                 <option value="">Select a Blood Center</option>
                 <?php while($row = mysqli_fetch_assoc($bc_result)): ?>
-                    <option value="<?php echo $row['bcID']; ?>"><?php echo $row['bcName']; ?></option>
+                    <option value="<?php echo htmlspecialchars($row['bcID']); ?>"><?php echo htmlspecialchars($row['bcName']); ?></option>
                 <?php endwhile; ?>
             </select>
         </div>

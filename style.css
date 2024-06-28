@@ -380,4 +380,90 @@ footer img {
     margin: 100px auto;
 }
 
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+.quantity-container input {
+    width: 60px;
+    text-align: center;
+}
+.quantity-container button {
+    background-color: #ccc;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Add your existing CSS styles here */
+
+.form-group .blood-qty-input {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .blood-qty-input input[type="number"] {
+    width: calc(100% - 40px); /* Adjust based on button width */
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.form-group .blood-qty-input button {
+    width: 40px; /* Adjust as needed */
+    padding: 8px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.form-group .blood-qty-input button:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+
+.form-group .blood-qty-input button:focus {
+    outline: none;
+}
+
+/* Add your existing CSS styles here */
+
+.form-group .blood-qty-input {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .blood-qty-input input[type="number"] {
+    width: calc(100% - 80px); /* Adjust based on button width */
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.form-group .blood-qty-input button {
+    width: 40px; /* Adjust as needed */
+    padding: 8px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group .blood-qty-input button:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+
+.form-group .blood-qty-input button:focus {
+    outline: none;
+}
+
 

@@ -42,7 +42,7 @@ if (!$result) {
         <table>
             <thead>
                 <tr>
-                    <th>Donor ID</th>
+                    <th>Donor IC</th>
                     <th>Name</th>
                     <th>Age</th>
                     <th>Phone Number</th>

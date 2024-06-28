@@ -32,7 +32,7 @@ if (isset($_GET['bcID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeBleed</title>
+    <title>WeBleed - Edit Blood Center</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
@@ -64,23 +64,57 @@ if (isset($_GET['bcID'])) {
             </div>
             <div class="form-group">
                 <label for="bcBloodQtyA">Blood Quantity Type A:</label>
-                <input type="number" id="bcBloodQtyA" name="bcBloodQtyA" value="<?php echo $bloodcenter['bcBloodQtyA']; ?>" required>
+                <div class="blood-qty-input">
+                    <button type="button" onclick="decrementValue('bcBloodQtyA')">-</button>
+                    <input type="number" id="bcBloodQtyA" name="bcBloodQtyA" min=0 value="<?php echo $bloodcenter['bcBloodQtyA']; ?>" required>
+                    <button type="button" onclick="incrementValue('bcBloodQtyA')">+</button>
+                </div>
             </div>
             <div class="form-group">
                 <label for="bcBloodQtyB">Blood Quantity Type B:</label>
-                <input type="number" id="bcBloodQtyB" name="bcBloodQtyB" value="<?php echo $bloodcenter['bcBloodQtyB']; ?>" required>
+                <div class="blood-qty-input">
+                    <button type="button" onclick="decrementValue('bcBloodQtyB')">-</button>
+                    <input type="number" id="bcBloodQtyB" name="bcBloodQtyB" min=0 value="<?php echo $bloodcenter['bcBloodQtyB']; ?>" required>
+                    <button type="button" onclick="incrementValue('bcBloodQtyB')">+</button>
+                </div>
             </div>
             <div class="form-group">
                 <label for="bcBloodQtyO">Blood Quantity Type O:</label>
-                <input type="number" id="bcBloodQtyO" name="bcBloodQtyO" value="<?php echo $bloodcenter['bcBloodQtyO']; ?>" required>
+                <div class="blood-qty-input">
+                    <button type="button" onclick="decrementValue('bcBloodQtyO')">-</button>
+                    <input type="number" id="bcBloodQtyO" name="bcBloodQtyO" min=0 value="<?php echo $bloodcenter['bcBloodQtyO']; ?>" required>
+                    <button type="button" onclick="incrementValue('bcBloodQtyO')">+</button>
+                </div>
             </div>
             <div class="form-group">
                 <label for="bcBloodQtyAB">Blood Quantity Type AB:</label>
-                <input type="number" id="bcBloodQtyAB" name="bcBloodQtyAB" value="<?php echo $bloodcenter['bcBloodQtyAB']; ?>" required>
+                <div class="blood-qty-input">
+                    <button type="button" onclick="decrementValue('bcBloodQtyAB')">-</button>
+                    <input type="number" id="bcBloodQtyAB" name="bcBloodQtyAB" min=0 value="<?php echo $bloodcenter['bcBloodQtyAB']; ?>" required>
+                    <button type="button" onclick="incrementValue('bcBloodQtyAB')">+</button>
+                </div>
             </div>
             <button type="submit">Update Blood Center</button>
         </form>
     </div>
+    
+    <script>
+        function incrementValue(inputId) {
+            var inputElement = document.getElementById(inputId);
+            var currentValue = parseInt(inputElement.value);
+            if (!isNaN(currentValue)) {
+                inputElement.value = currentValue + 1;
+            }
+        }
+
+        function decrementValue(inputId) {
+            var inputElement = document.getElementById(inputId);
+            var currentValue = parseInt(inputElement.value);
+            if (!isNaN(currentValue) && currentValue > 0) {
+                inputElement.value = currentValue - 1;
+            }
+        }
+    </script>
 </body>
 </html>
 

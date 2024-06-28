@@ -46,8 +46,8 @@ if (!$staff_result) {
     <h2>Add New Donor</h2>
     <form action="add_donor_process.php" method="POST">
         <div class="form-group">
-            <label for="donID">Donor ID:</label>
-            <input type="text" id="donID" name="donID" required>
+            <label for="donID">Donor IC:</label>
+            <input type="text" id="donID" name="donID" placeholder="Eg: 010203-04-0506" required>
         </div>
         <div class="form-group">
             <label for="donPassword">Password:</label>
@@ -71,7 +71,7 @@ if (!$staff_result) {
         </div>
         <div class="form-group">
             <label for="donPhoneNo">Phone Number:</label>
-            <input type="text" id="donPhoneNo" name="donPhoneNo" required>
+            <input type="text" id="donPhoneNo" name="donPhoneNo" placeholder="Eg: 0112345678" required>
         </div>
         <div class="form-group">
             <label for="donBloodType">Blood Type:</label>
@@ -103,11 +103,16 @@ if (!$staff_result) {
         </div>
         <div class="form-group">
             <label for="eligibleStatus">Eligible Status:</label>
-            <input type="text" id="eligibleStatus" name="eligibleStatus" placeholder="Y: Yes, eligible   N: Not eligible" required>
+            <select id="eligibleStatus" name="eligibleStatus" required>
+                <option value="">Select Eligible Status</option>
+                <option value="Y">Yes, eligible</option>
+                <option value="N">No, not eligible</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="staffID">Staff Name:</label>
             <select id="staffID" name="staffID" required>
+            <option value="">Select Staff</option>
                 <?php while ($staff = mysqli_fetch_assoc($staff_result)): ?>
                     <option value="<?php echo $staff['staffID']; ?>">
                         <?php echo $staff['staffName']; ?>

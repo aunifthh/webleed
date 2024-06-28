@@ -71,7 +71,7 @@ if (!$staff_result) {
         </div>
         <div class="form-group">
             <label for="donBloodType">Blood Type:</label>
-            <input type="text" id="donBloodType" name="donBloodType" value="<?php echo $donor['donBloodType']; ?>">
+            <p><?php echo $donor['donBloodType']; ?></p>
         </div>
         <div class="form-group">
             <label for="donBloodQty">Blood Quantity:</label>
@@ -83,7 +83,10 @@ if (!$staff_result) {
         </div>
         <div class="form-group">
             <label for="eligibleStatus">Eligible Status:</label>
-            <input type="text" id="eligibleStatus" name="eligibleStatus" placeholder="Y: Yes, eligible  N: Not eligible" value="<?php echo $donor['eligibleStatus']; ?>">
+            <select id="eligibleStatus" name="eligibleStatus" required>
+                <option value="Y" <?php if ($donor['eligibleStatus'] == 'Y') echo 'selected'; ?>>Yes, eligible</option>
+                <option value="N" <?php if ($donor['eligibleStatus'] == 'N') echo 'selected'; ?>>No, not eligible</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="staffID">Staff Name:</label>

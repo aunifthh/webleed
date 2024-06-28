@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
+    // Insert the new blood sample
     $query = "INSERT INTO bloodsample (sampleNo, bloodType, status, bcID) 
               VALUES ('$sampleNo', '$bloodType', '$status', '$bcID')";
 

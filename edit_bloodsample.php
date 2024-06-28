@@ -13,7 +13,7 @@ include('connection.php');
 
 // Fetch blood sample details
 if (isset($_GET['sampleNo'])) {
-    $sampleNo = $_GET['sampleNo'];
+    $sampleNo = mysqli_real_escape_string($condb, $_GET['sampleNo']);
     $query = "SELECT * FROM bloodsample WHERE sampleNo = '$sampleNo'";
     $result = mysqli_query($condb, $query);
 
@@ -55,28 +55,38 @@ if (!$bc_result) {
                 <li><a href="bloodsample_details.php">Blood Sample Details</a></li>
                 <li><a href="home_staff.php">Home</a></li>
                 <li><a href="logout.php">Logout</a></li>
-                <li></li>
             </ul>
         </div>
     </nav>
     <div class="edit-section">
         <h2>Edit Blood Sample</h2>
         <form action="edit_bloodsample_process.php" method="POST">
-            <input type="hidden" name="sampleNo" value="<?php echo $bloodsample['sampleNo']; ?>">
+            <input type="hidden" name="sampleNo" value="<?php echo htmlspecialchars($bloodsample['sampleNo']); ?>">
             <div class="form-group">
                 <label for="bloodType">Blood Type:</label>
-                <input type="text" id="bloodType" name="bloodType" value="<?php echo $bloodsample['bloodType']; ?>" required>
+                <select id="bloodType" name="bloodType" required>
+                    <option value="">Select Blood Type</option>
+                    <option value="A" <?php if ($bloodsample['bloodType'] == 'A') echo 'selected'; ?>>A</option>
+                    <option value="B" <?php if ($bloodsample['bloodType'] == 'B') echo 'selected'; ?>>B</option>
+                    <option value="O" <?php if ($bloodsample['bloodType'] == 'O') echo 'selected'; ?>>O</option>
+                    <option value="AB" <?php if ($bloodsample['bloodType'] == 'AB') echo 'selected'; ?>>AB</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="status">Status:</label>
-                <input type="text" id="status" name="status" value="<?php echo $bloodsample['status']; ?>" required>
+                <select id="status" name="status" required>
+                    <option value="">Select Status</option>
+                    <option value="Available" <?php if ($bloodsample['status'] == 'Available') echo 'selected'; ?>>Available</option>
+                    <option value="Unavailable" <?php if ($bloodsample['status'] == 'Unavailable') echo 'selected'; ?>>Unavailable</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="bcID">Blood Center:</label>
                 <select id="bcID" name="bcID" required>
+                    <option value="">Select a Blood Center</option>
                     <?php while ($row = mysqli_fetch_assoc($bc_result)): ?>
-                        <option value="<?php echo $row['bcID']; ?>" <?php if ($row['bcID'] == $bloodsample['bcID']) echo 'selected'; ?>>
-                            <?php echo $row['bcName']; ?>
+                        <option value="<?php echo htmlspecialchars($row['bcID']); ?>" <?php if ($row['bcID'] == $bloodsample['bcID']) echo 'selected'; ?>>
+                            <?php echo htmlspecialchars($row['bcName']); ?>
                         </option>
                     <?php endwhile; ?>
                 </select>
