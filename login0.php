@@ -21,7 +21,6 @@ if ($_POST['type'] == 'staff') {
     $field1 = "staffID";
     $field2 = "staffPassword";
     $field3 = "staffName";
-    $field4 = "staffPhoneNo";
     $location = "home_staff.php";
 } else if ($_POST['type'] == 'donor') {
     $table = "donor";
@@ -33,7 +32,6 @@ if ($_POST['type'] == 'staff') {
     $table = "healthcareprovider";
     $field1 = "hpID";
     $field2 = "hpPassword";
-    $field3 = "";
     $location = "home_hp.php";
 }
 
@@ -45,14 +43,23 @@ $result_login = mysqli_query($condb, $sql_login);
 
 if (mysqli_num_rows($result_login) == 1) {
     $data = mysqli_fetch_array($result_login);
-    
+
     if ($data[$field2] == $password) {
         $_SESSION[$field2] = $data[$field2];
         $_SESSION[$field1] = $data[$field1];
-        echo "<script>
-                alert('Welcome back, {$_POST['type']}');
-                window.location.href='$location';
-              </script>";
+
+        if ($_POST['type'] == 'staff' || $_POST['type'] == 'donor') {
+            $name = $data[$field3];
+            echo "<script>
+                    alert('Welcome back, {$_POST['type']} $name');
+                    window.location.href='$location';
+                  </script>";
+        } else {
+            echo "<script>
+                    alert('Welcome back, healthcare provider');
+                    window.location.href='$location';
+                  </script>";
+        }
     } else {
         echo "<script>
                 alert('Incorrect Password');
