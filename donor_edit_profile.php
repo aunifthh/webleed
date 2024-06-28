@@ -28,14 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
     $name = $_POST['name'];
     $age = $_POST['age'];
-    $gender = $_POST['gender'];
     $phoneno = $_POST['phoneno'];
     $weight = $_POST['weight'];
-    $bloodtype = $_POST['bloodtype'];
 
     // Update donor information in the database
-    $update_query = "UPDATE donor SET donName = '$name', donAge = '$age', donGender = '$gender', donPhoneNo = '$phoneno',
-                    donWeight = '$weight', donBloodType = '$bloodtype' WHERE donID = '$donid'";
+    $update_query = "UPDATE donor SET donName = '$name', donAge = '$age', donPhoneNo = '$phoneno',
+                    donWeight = '$weight' WHERE donID = '$donid'";
 
     if (mysqli_query($condb, $update_query)) {
         // Use JavaScript for alert and redirect
@@ -74,7 +72,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <li><a href="home_donor.php">Home</a></li>
                 <li><a href="donor_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
-                <li></li>
             </ul>
         </div>
     </nav>
@@ -91,30 +88,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
-                <select id="gender" name="gender">
-                    <option value="M" <?php if ($donor['donGender'] == 'M') echo 'selected'; ?>>Male</option>
-                    <option value="F" <?php if ($donor['donGender'] == 'F') echo 'selected'; ?>>Female</option>
-                </select>
+                <span id="gender"><?php echo htmlspecialchars($donor['donGender'] == 'M' ? 'Male' : 'Female'); ?></span>
             </div>
             <div class="form-group">
                 <label for="phoneno">Phone Number:</label>
                 <input type="text" id="phoneno" name="phoneno" value="<?php echo htmlspecialchars($donor['donPhoneNo']); ?>">
             </div>
-
             <div class="form-group">
                 <label for="weight">Weight:</label>
                 <input type="text" id="weight" name="weight" value="<?php echo htmlspecialchars($donor['donWeight']); ?>">
             </div>
             <div class="form-group">
                 <label for="bloodtype">Blood Type:</label>
-                <select id="bloodtype" name="bloodtype">
-                    <option value="A" <?php if ($donor['donBloodType'] == 'A') echo 'selected'; ?>>A</option>
-                    <option value="B" <?php if ($donor['donBloodType'] == 'B') echo 'selected'; ?>>B</option>
-                    <option value="AB" <?php if ($donor['donBloodType'] == 'AB') echo 'selected'; ?>>AB</option>
-                    <option value="O" <?php if ($donor['donBloodType'] == 'O') echo 'selected'; ?>>O</option>
-                </select>
+                <span id="bloodtype"><?php echo htmlspecialchars($donor['donBloodType']); ?></span>
             </div>
-            
             <button type="submit">Update Profile</button>
         </form>
     </div>

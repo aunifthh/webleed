@@ -40,7 +40,7 @@ if (!$bc_result) {
         <form action="add_staff_process.php" method="POST">
             <div class="form-group">
                 <label for="staffID">Staff ID:</label>
-                <input type="text" id="staffID" name="staffID" required>
+                <input type="text" id="staffID" name="staffID" placeholder="Eg: 2000" required>
             </div>
             <div class="form-group">
                 <label for="staffPassword">Password:</label>
@@ -52,7 +52,7 @@ if (!$bc_result) {
             </div>
             <div class="form-group">
                 <label for="staffPhoneNo">Phone Number:</label>
-                <input type="tel" id="staffPhoneNo" name="staffPhoneNo" required>
+                <input type="tel" id="staffPhoneNo" name="staffPhoneNo" placeholder="Eg: 0112345678" required>
             </div>
             <div class="form-group">
                 <label for="bcID">Blood Center:</label>

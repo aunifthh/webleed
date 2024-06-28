@@ -59,7 +59,7 @@ if (!$staff_result) {
         </div>
         <div class="form-group">
             <label for="donAge">Age:</label>
-            <input type="number" id="donAge" name="donAge" value="<?php echo $donor['donAge']; ?>">
+            <input type="number" id="donAge" name="donAge" min=0 value="<?php echo $donor['donAge']; ?>">
         </div>
         <div class="form-group">
             <label for="donPhoneNo">Phone Number:</label>
