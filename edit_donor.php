@@ -79,7 +79,11 @@ if (!$staff_result) {
         </div>
         <div class="form-group">
             <label for="donFrequency">Donation Frequency:</label>
-            <input type="number" id="donFrequency" name="donFrequency" value="<?php echo $donor['donFrequency']; ?>">
+            <div class = "blood-qty-input">
+                <button type="button" onclick="decrementValue('donFrequency')">-</button>
+                <input type="number" id="donFrequency" name="donFrequency" min=0 max=4 value="<?php echo $donor['donFrequency']; ?>" required>
+                <button type="button" onclick="incrementValue('donFrequency')">+</button>
+            </div>
         </div>
         <div class="form-group">
             <label for="eligibleStatus">Eligible Status:</label>
@@ -101,6 +105,25 @@ if (!$staff_result) {
         <button type="submit">Update Donor</button>
     </form>
 </div>
+
+<script>
+        function incrementValue(inputId) {
+            var inputElement = document.getElementById(inputId);
+            var currentValue = parseInt(inputElement.value);
+            if (!isNaN(currentValue) && currentValue < 4) {
+                inputElement.value = currentValue + 1;
+            }
+        }
+
+        function decrementValue(inputId) {
+            var inputElement = document.getElementById(inputId);
+            var currentValue = parseInt(inputElement.value);
+            if (!isNaN(currentValue) && currentValue > 0) {
+                inputElement.value = currentValue - 1;
+            }
+        }
+</script>
+
 </body>
 </html>
 
