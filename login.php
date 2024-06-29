@@ -32,7 +32,7 @@
         <h2>Login</h2>
         <form action="login0.php" method="post">
             <div class="form-group">
-                <label for="id">ID:</label>
+                <label for="id">IC/ID:</label>
                 <input type="text" id="id" name="id" required>
             </div>
             <div class="form-group">
@@ -41,6 +41,8 @@
             </div>
             <div class="form-group">
                 <label for="type">Login as:</label><br>
+                <input type='radio' id='admin' name='type' value='admin' checked>Admin
+                <br>
                 <input type='radio' id='staff' name='type' value='staff' checked>Staff
                 <br>
                 

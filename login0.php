@@ -16,7 +16,13 @@ $field2 = "";
 $field3 = "";
 $location = "";
 
-if ($_POST['type'] == 'staff') {
+
+if ($_POST['type'] == 'admin') {
+    $table = "admin";
+    $field1 = "adminID";
+    $field2 = "adminPassword";
+    $location = "home_admin.php";
+} else if ($_POST['type'] == 'staff') {
     $table = "staff";
     $field1 = "staffID";
     $field2 = "staffPassword";
@@ -52,6 +58,11 @@ if (mysqli_num_rows($result_login) == 1) {
             $name = $data[$field3];
             echo "<script>
                     alert('Welcome back, {$_POST['type']} $name');
+                    window.location.href='$location';
+                  </script>";
+        } else if ($_POST['type'] == 'admin') {
+            echo "<script>
+                    alert('Welcome back, admin');
                     window.location.href='$location';
                   </script>";
         } else {
