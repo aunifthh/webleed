@@ -3,12 +3,12 @@ session_start();
 include('connection.php');
 
 // Check if donID is set and fetch donor details
-if (!isset($_GET['donID'])) {
+if (!isset($_GET['donIC'])) {
     die('Invalid request');
 }
 
-$donID = mysqli_real_escape_string($condb, $_GET['donID']);
-$query = "SELECT * FROM donor WHERE donID='$donID'";
+$donIC = mysqli_real_escape_string($condb, $_GET['donIC']);
+$query = "SELECT * FROM donor WHERE donIC='$donIC'";
 $result = mysqli_query($condb, $query);
 
 if (!$result || mysqli_num_rows($result) == 0) {
@@ -52,7 +52,7 @@ if (!$staff_result) {
 <div class="edit-section">
     <h2>Edit Donor Details</h2>
     <form action="edit_donor_process.php" method="POST">
-        <input type="hidden" name="donID" value="<?php echo $donor['donID']; ?>">
+        <input type="hidden" name="donIC" value="<?php echo $donor['donIC']; ?>">
         <div class="form-group">
             <label for="donName">Name:</label>
             <input type="text" id="donName" name="donName" value="<?php echo $donor['donName']; ?>">

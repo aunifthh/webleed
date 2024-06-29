@@ -3,7 +3,7 @@ session_start();
 include('connection.php');
 
 // Fetch donor details from the database
-$query = "SELECT donor.donID, donor.donName, donor.donAge, donor.donPhoneNo, donor.donBloodType, donor.donBloodQty, donor.donWeight, donor.donFrequency, donor.eligibleStatus, bloodcenter.bcName 
+$query = "SELECT donor.donIC, donor.donName, donor.donAge, donor.donPhoneNo, donor.donBloodType, donor.donBloodQty, donor.donWeight, donor.donFrequency, donor.eligibleStatus, bloodcenter.bcName 
           FROM donor 
           JOIN staff ON donor.staffID = staff.staffID 
           JOIN bloodcenter ON staff.bcID = bloodcenter.bcID";
@@ -58,7 +58,7 @@ if (!$result) {
             <tbody>
                 <?php while ($row = mysqli_fetch_assoc($result)): ?>
                 <tr>
-                    <td><?php echo $row['donID']; ?></td>
+                    <td><?php echo $row['donIC']; ?></td>
                     <td><?php echo $row['donName']; ?></td>
                     <td><?php echo $row['donAge']; ?></td>
                     <td><?php echo $row['donPhoneNo']; ?></td>
@@ -69,8 +69,8 @@ if (!$result) {
                     <td><?php echo $row['eligibleStatus']; ?></td>
                     <td><?php echo $row['bcName']; ?></td>
                     <td>
-                        <a href="edit_donor.php?donID=<?php echo $row['donID']; ?>" class="button">Edit</a>
-                        <a href="delete_donor.php?id=<?php echo $row['donID']; ?>" class="button" onclick="return confirm('Are you sure you want to delete this donor?');">Delete</a>
+                        <a href="edit_donor.php?donIC=<?php echo $row['donIC']; ?>" class="button">Edit</a>
+                        <a href="delete_donor.php?id=<?php echo $row['donIC']; ?>" class="button" onclick="return confirm('Are you sure you want to delete this donor?');">Delete</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

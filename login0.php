@@ -24,7 +24,7 @@ if ($_POST['type'] == 'staff') {
     $location = "home_staff.php";
 } else if ($_POST['type'] == 'donor') {
     $table = "donor";
-    $field1 = "donID";
+    $field1 = "donIC";
     $field2 = "donPassword";
     $field3 = "donName";
     $location = "home_donor.php";

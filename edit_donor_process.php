@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $donID = mysqli_real_escape_string($condb, $_POST['donID']);
+    $donIC = mysqli_real_escape_string($condb, $_POST['donIC']);
     $donName = mysqli_real_escape_string($condb, $_POST['donName']);
     $donAge = mysqli_real_escape_string($condb, $_POST['donAge']);
     $donPhoneNo = mysqli_real_escape_string($condb, $_POST['donPhoneNo']);
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               donFrequency='$donFrequency',
               eligibleStatus='$eligibleStatus',
               staffID='$staffID'
-              WHERE donID='$donID'";
+              WHERE donIC='$donIC'";
 
     if (mysqli_query($condb, $query)) {
         echo "<script>

@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in as a donor
-if (!isset($_SESSION['donID'])) {
+if (!isset($_SESSION['donIC'])) {
     // If not, redirect to login page
     header("Location: login.php");
     exit();
@@ -11,9 +11,9 @@ if (!isset($_SESSION['donID'])) {
 include('connection.php');
 
 // Fetch donor information from the database
-$donid = $_SESSION['donID'];
+$donIC = $_SESSION['donIC'];
 
-$query = "SELECT * FROM donor WHERE donID = '$donid'";
+$query = "SELECT * FROM donor WHERE donIC = '$donIC'";
 $result = mysqli_query($condb, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
@@ -54,7 +54,7 @@ mysqli_close($condb);
                 <img src="nopfp.png" alt="Profile Picture">
         </div>
         <div class="profile-info">
-            <p><strong>ID:</strong> <?php echo $donor['donID']; ?></p>
+            <p><strong>IC:</strong> <?php echo $donor['donIC']; ?></p>
             <p><strong>Name:</strong> <?php echo $donor['donName']; ?></p>
             <p><strong>Age:</strong> <?php echo $donor['donAge']; ?></p>
             <p><strong>Phone Number:</strong> <?php echo $donor['donPhoneNo']; ?></p>

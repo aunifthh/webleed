@@ -16,10 +16,10 @@ $sql_donors = "SELECT * FROM DONOR WHERE STAFFID IS NULL";
 $result_donors = mysqli_query($condb, $sql_donors);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $donor_id = mysqli_real_escape_string($condb, $_POST['donor_id']);
+    $donor_ic = mysqli_real_escape_string($condb, $_POST['donor_ic']);
     $staff_id = $_SESSION['staffid'];
 
-    $sql_assign = "UPDATE DONOR SET STAFFID = '$staff_id' WHERE DONID = '$donor_id'";
+    $sql_assign = "UPDATE DONOR SET STAFFID = '$staff_id' WHERE DONIC = '$donor_ic'";
     if (mysqli_query($condb, $sql_assign)) {
         echo "<script>
                 alert('Donor assigned successfully.');
@@ -52,10 +52,10 @@ mysqli_close($condb);
         <form action="manage_donors.php" method="post">
             <div class="form-group">
                 <label for="donor_id">Select Donor to Assign:</label>
-                <select id="donor_id" name="donor_id" required>
+                <select id="donor_ic" name="donor_ic" required>
                     <?php while ($donor = mysqli_fetch_assoc($result_donors)): ?>
                     <option value="<?php echo $donor['DONID']; ?>">
-                        <?php echo $donor['DONNAME'] . ' (' . $donor['DONID'] . ')'; ?>
+                        <?php echo $donor['DONNAME'] . ' (' . $donor['DONIC'] . ')'; ?>
                     </option>
                     <?php endwhile; ?>
                 </select>
