@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in as a donor
-if (!isset($_SESSION['donID'])) {
+if (!isset($_SESSION['donIC'])) {
     // If not, redirect to login page
     header("Location: login.php");
     exit();
@@ -11,7 +11,7 @@ if (!isset($_SESSION['donID'])) {
 include('connection.php');
 
 // Fetch donor information from the database
-$donid = $_SESSION['donID'];
+$donIC = $_SESSION['donIC'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirm_password = $_POST['confirm_password'];
 
     // Fetch the current password from the database
-    $query = "SELECT donPassword FROM donor WHERE donID = '$donid'";
+    $query = "SELECT donPassword FROM donor WHERE donIC = '$donIC'";
     $result = mysqli_query($condb, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Check if the new password and confirm password match
             if ($new_password == $confirm_password) {
                 // Update the password in the database
-                $update_query = "UPDATE donor SET donPassword = '$new_password' WHERE donID = '$donid'";
+                $update_query = "UPDATE donor SET donPassword = '$new_password' WHERE donIC = '$donIC'";
 
                 if (mysqli_query($condb, $update_query)) {
                     echo "<script>

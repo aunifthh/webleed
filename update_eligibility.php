@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['donID'])) {
+if (!isset($_SESSION['donIC'])) {
     echo "You must be logged in as a donor to update eligibility status.";
     exit();
 }
 
 include('connection.php');
 
-$donID = $_SESSION['donID'];
+$donIC = $_SESSION['donIC'];
 $donWeight = $_POST['donWeight'];
 $isEligible = $_POST['isEligible'];
 
@@ -21,9 +21,9 @@ if ($pregnant === 'yes') {
 }
 
 // Update the eligibility status in the database
-$query = "UPDATE donor SET  donWeight = ?, eligibleStatus = ? WHERE donID = ?";
+$query = "UPDATE donor SET  donWeight = ?, eligibleStatus = ? WHERE donIC = ?";
 $stmt = $condb->prepare($query);
-$stmt->bind_param("isi", $donWeight, $isEligible, $donID);
+$stmt->bind_param("isi", $donWeight, $isEligible, $donIC);
 
 if ($stmt->execute()) {
     echo "Eligibility status updated successfully.";

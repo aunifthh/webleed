@@ -47,7 +47,7 @@ if (!$staff_result) {
     <form action="add_donor_process.php" method="POST">
         <div class="form-group">
             <label for="donID">Donor IC:</label>
-            <input type="text" id="donID" name="donID" placeholder="Eg: 010203-04-0506" required>
+            <input type="text" id="donIC" name="donIC" placeholder="Eg: 010203-04-0506" required>
         </div>
         <div class="form-group">
             <label for="donPassword">Password:</label>

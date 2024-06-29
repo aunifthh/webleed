@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in as a donor
-if (!isset($_SESSION['donID'])) {
+if (!isset($_SESSION['donIC'])) {
     // If not, redirect to login page
     header("Location: login.php");
     exit();
@@ -11,9 +11,9 @@ if (!isset($_SESSION['donID'])) {
 include('connection.php');
 
 // Fetch donor information from the database
-$donid = $_SESSION['donID'];
+$donIC = $_SESSION['donIC'];
 
-$query = "SELECT * FROM donor WHERE donID = '$donid'";
+$query = "SELECT * FROM donor WHERE donIC = '$donIC'";
 $result = mysqli_query($condb, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Update donor information in the database
     $update_query = "UPDATE donor SET donName = '$name', donAge = '$age', donPhoneNo = '$phoneno',
-                    donWeight = '$weight' WHERE donID = '$donid'";
+                    donWeight = '$weight' WHERE donIC = '$donIC'";
 
     if (mysqli_query($condb, $update_query)) {
         // Use JavaScript for alert and redirect

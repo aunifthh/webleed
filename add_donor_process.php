@@ -3,7 +3,7 @@ session_start();
 include('connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $donID = mysqli_real_escape_string($condb, $_POST['donID']);
+    $donIC = mysqli_real_escape_string($condb, $_POST['donIC']);
     $donPassword = mysqli_real_escape_string($condb, $_POST['donPassword']);
     $donName = mysqli_real_escape_string($condb, $_POST['donName']);
     $donGender = mysqli_real_escape_string($condb, $_POST['donGender']);
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $staffID = mysqli_real_escape_string($condb, $_POST['staffID']);
 
     // Check if donID already exists in the database
-    $check_query = "SELECT donID FROM donor WHERE donID='$donID'";
+    $check_query = "SELECT donIC FROM donor WHERE donIC='$donIC'";
     $check_result = mysqli_query($condb, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Insert into donor table
-    $query = "INSERT INTO donor (donID, donPassword, donName, donGender, donAge, donPhoneNo, donBloodType, donBloodQty, donWeight, donFrequency, eligibleStatus, staffID) 
-              VALUES ('$donID', '$donPassword', '$donName', '$donGender', '$donAge', '$donPhoneNo', '$donBloodType', '$donBloodQty', '$donWeight', '$donFrequency', '$eligibleStatus', '$staffID')";
+    $query = "INSERT INTO donor (donIC, donPassword, donName, donGender, donAge, donPhoneNo, donBloodType, donBloodQty, donWeight, donFrequency, eligibleStatus, staffID) 
+              VALUES ('$donIC', '$donPassword', '$donName', '$donGender', '$donAge', '$donPhoneNo', '$donBloodType', '$donBloodQty', '$donWeight', '$donFrequency', '$eligibleStatus', '$staffID')";
 
     if (mysqli_query($condb, $query)) {
         echo "<script>

@@ -2,7 +2,7 @@
 include('connection.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST['id'];
+    $ic = $_POST['ic'];
     $name = $_POST['name'];
     $age = $_POST['age'];
     $phoneno = $_POST['phoneno'];
@@ -23,20 +23,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Check if donID already exists in the database
-    $check_query = "SELECT donID FROM donor WHERE donID = '$id'";
+    $check_query = "SELECT donIC FROM donor WHERE donIC = '$ic'";
     $check_result = mysqli_query($condb, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
         echo "<script>
-                alert('ID already exists. Please use a different ID.');
+                alert('IC already exists. Please use a different IC.');
                 window.history.back();
               </script>";
         exit();
     }
 
     // Insert the new donor into the database
-    $insert_query = "INSERT INTO donor (donID, donName, donAge, donPhoneNo, donGender, donWeight, donBloodType, donPassword, staffID) 
-                     VALUES ('$id', '$name', '$age', '$phoneno', '$gender', '$weight', '$bloodtype', '$password', '$staffID')";
+    $insert_query = "INSERT INTO donor (donIC, donName, donAge, donPhoneNo, donGender, donWeight, donBloodType, donPassword, staffID) 
+                     VALUES ('$ic', '$name', '$age', '$phoneno', '$gender', '$weight', '$bloodtype', '$password', '$staffID')";
 
     if (mysqli_query($condb, $insert_query)) {
         echo "<script>
