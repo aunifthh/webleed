@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <label for="lastDonation">Last Donation Date:</label>
             <input type="date" id="lastDonation" name="lastDonation"><br><br>
-
+            
             <label for="healthIssues">Do you have any serious health issues? (AIDS / Heart Disease / Anemia, other) :</label>
             <select id="healthIssues" name="healthIssues" required>
                 <option value="no">No</option>
@@ -92,9 +92,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </select><br><br>
 
             <button type="submit">Check Eligibility</button>
+            <br><br>
         </form>
         <div id="result"></div>
-        <br><br>
     </div>
 
     <script src="eligible.js"></script>
@@ -111,6 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             var dateString = today.toISOString().split('T')[0];
             lastDonation.value = dateString;
         } else {
+            //lastDonation.style.display.align-items = 'center';
             lastDonation.style.display = 'block';
             lastDonation.value = '';
         }

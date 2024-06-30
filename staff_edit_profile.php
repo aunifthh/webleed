@@ -33,9 +33,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $update_query = "UPDATE staff SET staffName = '$name', staffPhoneNo = '$phoneno' WHERE staffID = '$staffid'";
 
     if (mysqli_query($condb, $update_query)) {
-        echo "<script>alert('Profile updated successfully.'); window.location.href = 'staff_profile.php';</script>";
+
+        echo "<script>
+        alert('Profile updated successfully.'); 
+        window.location.href = 'staff_profile.php';
+        </script>";
     } else {
-        echo "Error updating profile: " . mysqli_error($condb);
+        echo "<script>
+        alert('Error updating profile: " . mysqli_error($condb) . "');
+      </script>";
     }
 
     mysqli_close($condb);
@@ -72,11 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($staff['staffName']); ?>">
             </div>
             <div class="form-group">
                 <label for="phoneno">Phone Number:</label>
-                <input type="text" id="phoneno" name="phoneno" required>
+                <input type="text" id="phoneno" name="phoneno" value="<?php echo htmlspecialchars($staff['staffPhoneNo']); ?>">
             </div>
             <button type="submit">Update Profile</button>
         </form>
