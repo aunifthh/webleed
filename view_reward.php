@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in as a staff member
-if (!isset($_SESSION['staffID'])) {
+if (!isset($_SESSION['adminID'])) {
     // If not, redirect to the login page
     header("Location: login.php");
     exit();
@@ -33,7 +33,7 @@ $result = mysqli_query($condb, $query);
         </div>
         <div class="navbar_content">
             <ul>
-                <li><a href="home_staff.php">Home</a></li>
+                <li><a href="home_admin.php">Home</a></li>
                 <li><a href="logout.php">Logout</a></li>
                 <li></li>
             </ul>

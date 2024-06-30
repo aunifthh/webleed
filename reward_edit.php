@@ -52,8 +52,8 @@ mysqli_close($condb);
         <div class="navbar_content">
             <ul>
                 <li><a href="view_reward.php">Reward Details</a></li>
-                <li><a href="home_staff.php">Home</a></li>
-                <li><a href="staff_profile.php">Profile</a></li>
+                <li><a href="home_admin.php">Home</a></li>
+                <li><a href="admin_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
                 <li></li>
             </ul>
