@@ -56,7 +56,7 @@ if (!isset($_SESSION['adminID'])) {
         <form action="add_bloodcenter_process.php" method="POST">
             <div class="form-group">
                 <label for="bcID">Blood Center ID:</label>
-                <input type="text" id="bcID" name="bcID" required>
+                <input type="text" id="bcID" name="bcID" placeholder="Eg: 1007"required>
             </div>
             <div class="form-group">
                 <label for="bcName">Blood Center Name:</label>

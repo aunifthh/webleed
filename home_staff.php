@@ -32,7 +32,7 @@
     <main>
         <section class="form-section">
             <h2>Staff Information</h2>
-            <a href="staff_details.php" class="registration-link">View</a>
+            <a href="staff_profile.php" class="registration-link">View</a>
         </section>
 
         <section class="form-section">
@@ -40,20 +40,7 @@
             <a href="donor_details.php" class="registration-link">View</a>
         </section>
 
-        <section class="form-section">
-            <h2>Blood Sample Information</h2>
-            <a href="bloodsample_details.php" class="registration-link">View</a>
-        </section>
 
-        <section class="form-section">
-            <h2>Blood Center Information</h2>
-            <a href="bloodcenter_details.php" class="registration-link">View</a>
-        </section>
-
-        <section class="form-section">
-            <h2>Rewards</h2>
-            <a href="view_reward.php" class="registration-link">View</a>
-        </section>
     </main>
 
     <footer>
