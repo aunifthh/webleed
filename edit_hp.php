@@ -2,11 +2,11 @@
 session_start();
 include('connection.php');
 
-// Fetch healthcare provider details from the database based on staffID passed in URL
+// Fetch healthcare provider details from the database based on adminID passed in URL
 if (isset($_GET['adminID'])) {
     $adminID = mysqli_real_escape_string($condb, $_GET['adminID']);
     
-    $query = "SELECT staffID, staffPassword, bcID FROM staff WHERE staffID = '$staffID'";
+    $query = "SELECT staffID, staffPassword, bcID FROM staff WHERE staffID = '$adminID'";
     $result = mysqli_query($condb, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
@@ -56,7 +56,12 @@ if (isset($_GET['adminID'])) {
                 <label for="staffPassword">Password:</label>
                 <input type="password" id="staffPassword" name="staffPassword" value="<?php echo $hp['staffPassword']; ?>">
             </div>
+            <div class="form-group">
+                <label for="bcID">Blood Center ID:</label>
+                <input type="text" id="bcID" name="bcID" value="<?php echo $hp['bcID']; ?>">
+            </div>
+            <button type="submit">Update</button>
         </form>
-        </div>
-        </body>
-        </html>
+    </div>
+</body>
+</html>

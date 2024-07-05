@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in as a staff member
-if (!isset($_SESSION['staffID'])) {
+if (!isset($_SESSION['adminID'])) {
     // If not, redirect to the login page
     header("Location: login.php");
     exit();

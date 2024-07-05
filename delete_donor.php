@@ -2,7 +2,7 @@
 session_start();
 
 // Check if the user is logged in as a staff member
-if (!isset($_SESSION['staffID'])) {
+if (!isset($_SESSION['adminID'])) {
     // If not, redirect to the login page
     header("Location: login.php");
     exit();
@@ -12,8 +12,8 @@ if (!isset($_SESSION['staffID'])) {
 include('connection.php');
 
 if (isset($_GET['id'])) {
-    $donID = $_GET['id'];
-    $query = "DELETE FROM donor WHERE donID = '$donID'";
+    $donIC = $_GET['id'];
+    $query = "DELETE FROM donor WHERE donIC = '$donIC'";
 
     if (mysqli_query($condb, $query)) {
         echo "Donor deleted successfully!";

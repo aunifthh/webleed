@@ -79,7 +79,7 @@ mysqli_close($condb);
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
         <div class="form-group">
             <label for="sampleNo">Sample No:</label>
-            <input type="text" id="sampleNo" name="sampleNo" required>
+            <input type="text" id="sampleNo" name="sampleNo" placeholder="Eg: 4006"required>
         </div>
         <div class="form-group">
             <label for="bloodType">Blood Type:</label>
