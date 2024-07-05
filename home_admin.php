@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<nav class="navbar">
+    <nav class="navbar">
         <div class="logo_item">
             <img src="logo.jpg" alt="Company Logo">
             <span>WeBleed</span>
@@ -54,7 +54,6 @@
             <h2>Healthcare Provider Information</h2>
             <a href="hp_details.php" class="registration-link">View</a>
         </section>
-
 
         <section class="form-section">
             <h2>Rewards</h2>
