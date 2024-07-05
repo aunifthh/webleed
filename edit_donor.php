@@ -44,7 +44,7 @@ if (!$staff_result) {
     <div class="navbar_content">
         <ul>
             <li><a href="donor_details.php">Donor Details</a></li>
-            <li><a href="donor_profile.php">Profile</a></li>
+            <li><a href="admin_profile.php">Profile</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>

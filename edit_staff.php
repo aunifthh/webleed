@@ -43,7 +43,7 @@ if (!$bc_result) {
         <div class="navbar_content">
             <ul>
                 <li><a href="staff_details.php">Staff Details</a></li>
-                <li><a href="staff_profile.php">Profile</a></li>
+                <li><a href="admin_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>

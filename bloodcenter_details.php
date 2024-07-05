@@ -40,7 +40,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['bcID']
     </div>
     <div class="navbar_content">
         <ul>
-            <li><a href="home_staff.php">Home</a></li>
+            <li><a href="home_admin.php">Home</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
