@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Healthcare Provider</title>
+    <title>WeBleed</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
@@ -21,16 +21,16 @@
             </ul>
         </div>
     </nav>
-    <div class="form-container">
+    <div class="edit-section">
         <h2>Add New Healthcare Provider</h2>
         <form action="add_hp_process.php" method="POST">
             <div class="form-group">
-                <label for="staffID">ID:</label>
-                <input type="text" id="staffID" name="staffID" required>
+                <label for="hpID">ID:</label>
+                <input type="text" id="hpID" name="hpID" required>
             </div>
             <div class="form-group">
-                <label for="staffPassword">Password:</label>
-                <input type="password" id="staffPassword" name="staffPassword" required>
+                <label for="hpPassword">Password:</label>
+                <input type="password" id="hpPassword" name="hpPassword" required>
             </div>
             <div class="form-group">
                 <label for="sampleNo">Sample No:</label>

@@ -3,10 +3,10 @@ session_start();
 include('connection.php');
 
 // Fetch healthcare provider details from the database based on adminID passed in URL
-if (isset($_GET['adminID'])) {
-    $adminID = mysqli_real_escape_string($condb, $_GET['adminID']);
+if (isset($_GET['hpID'])) {
+    $hpID = mysqli_real_escape_string($condb, $_GET['hpID']);
     
-    $query = "SELECT staffID, staffPassword, bcID FROM staff WHERE staffID = '$adminID'";
+    $query = "SELECT hpID, hpPassword, sampleNo FROM healthcareprovider WHERE hpID = '$hpID'";
     $result = mysqli_query($condb, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
@@ -26,7 +26,7 @@ if (isset($_GET['adminID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Healthcare Provider</title>
+    <title>WeBleed</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="logo.jpg">
 </head>
@@ -44,21 +44,21 @@ if (isset($_GET['adminID'])) {
             </ul>
         </div>
     </nav>
-    <div class="form-container">
+    <div class="edit-section">
         <h2>Edit Healthcare Provider</h2>
         <form action="edit_hp_process.php" method="POST">
-            <input type="hidden" name="original_staffID" value="<?php echo $hp['staffID']; ?>">
+            <input type="hidden" name="hpID" value="<?php echo $hp['hpID']; ?>">
             <div class="form-group">
-                <label for="staffID">ID:</label>
-                <input type="text" id="staffID" name="staffID" value="<?php echo $hp['staffID']; ?>" readonly>
+                <label for="hpID">ID:</label>
+                <input type="text" id="hpID" name="hpID" value="<?php echo $hp['hpID']; ?>" readonly>
             </div>
             <div class="form-group">
-                <label for="staffPassword">Password:</label>
-                <input type="password" id="staffPassword" name="staffPassword" value="<?php echo $hp['staffPassword']; ?>">
+                <label for="hpPassword">Password:</label>
+                <input type="password" id="hpPassword" name="hpPassword" value="<?php echo $hp['hpPassword']; ?>">
             </div>
             <div class="form-group">
-                <label for="bcID">Blood Center ID:</label>
-                <input type="text" id="bcID" name="bcID" value="<?php echo $hp['bcID']; ?>">
+                <label for="sampleNo">Sample No:</label>
+                <input type="text" id="sampleNo" name="sampleNo" value="<?php echo $hp['sampleNo']; ?>">
             </div>
             <button type="submit">Update</button>
         </form>

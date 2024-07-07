@@ -2,20 +2,20 @@
 session_start();
 include('connection.php');
 
-// Check if staffID is provided via GET parameter
-if (isset($_GET['staffID'])) {
-    $staffID = mysqli_real_escape_string($condb, $_GET['staffID']);
+// Check if hpID is provided via POST parameter
+if (isset($_POST['hpID'])) {
+    $hpID = mysqli_real_escape_string($condb, $_POST['hpID']);
 
-    // Fetch healthcare provider details for confirmation
-    $query = "SELECT staffID, staffName FROM staff WHERE staffID = '$staffID'";
-    $result = mysqli_query($condb, $query);
+    // Delete healthcare provider from the database
+    $delete_query = "DELETE FROM healthcareprovider WHERE hpID = '$hpID'";
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $hp = mysqli_fetch_assoc($result);
+    if (mysqli_query($condb, $delete_query)) {
+        echo "<script>alert('Healthcare provider deleted successfully.'); window.location.href = 'hp_details.php';</script>";
     } else {
-        echo "Healthcare provider not found.";
-        exit();
+        echo "<script>alert('Error deleting healthcare provider: " . mysqli_error($condb) . "');</script>";
     }
+} else if (isset($_GET['hpID'])) {
+    $hpID = mysqli_real_escape_string($condb, $_GET['hpID']);
 } else {
     echo "Invalid request.";
     exit();
@@ -27,9 +27,16 @@ if (isset($_GET['staffID'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Healthcare Provider</title>
+    <title>WeBleed</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="logo.jpg">
+    <script>
+        function confirmDelete(hpID) {
+            if (confirm('Are you sure you want to delete this healthcare provider? This action cannot be undone.')) {
+                document.getElementById('deleteForm').submit();
+            }
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar">
@@ -45,12 +52,11 @@ if (isset($_GET['staffID'])) {
             </ul>
         </div>
     </nav>
-    <div class="confirmation-section">
-        <h2>Delete Healthcare Provider</h2>
-        <p>Are you sure you want to delete the healthcare provider <?php echo $hp['staffName']; ?> (ID: <?php echo $hp['staffID']; ?>)? This action cannot be undone.</p>
-        <form action="delete_hp_process.php" method="POST">
-            <input type="hidden" name="staffID" value="<?php echo $staffID; ?>">
-            <button type="submit" name="delete">Delete</button>
+    <div class="edit-section">
+        <h2>Delete Healthcare Provider</h2><br>
+        <form id="deleteForm" action="delete_hp.php" method="POST">
+            <input type="hidden" name="hpID" value="<?php echo $hpID; ?>">
+            <button type="button" onclick="confirmDelete('<?php echo $hpID; ?>')">Delete</button>
             <a href="hp_details.php" class="button">Cancel</a>
         </form>
     </div>
