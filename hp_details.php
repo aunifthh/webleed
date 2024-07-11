@@ -2,6 +2,20 @@
 session_start();
 include('connection.php');
 
+// Check if a delete request has been made
+if (isset($_GET['delete_id'])) {
+    $hpID = $_GET['delete_id'];
+    $delete_query = "DELETE FROM healthcareprovider WHERE hpID = ?";
+    $stmt = mysqli_prepare($condb, $delete_query);
+    mysqli_stmt_bind_param($stmt, "s", $hpID);
+    if (mysqli_stmt_execute($stmt)) {
+        echo "<script>alert('Healthcare provider deleted successfully.');</script>";
+    } else {
+        echo "<script>alert('Error deleting healthcare provider: " . mysqli_error($condb) . "');</script>";
+    }
+    mysqli_stmt_close($stmt);
+}
+
 // Fetch healthcare provider details from the database
 $query = "SELECT hpID, hpPassword, sampleNo FROM healthcareprovider";
 $result = mysqli_query($condb, $query);
@@ -56,7 +70,7 @@ if (!$result) {
                         <td><?php echo $row['sampleNo']; ?></td>
                         <td>
                             <a href="edit_hp.php?hpID=<?php echo $row['hpID']; ?>" class="button">Edit</a>
-                            <a href="delete_hp.php?hpID=<?php echo $row['hpID']; ?>" class="button delete-button" onclick="return confirm('Are you sure you want to delete this healthcare provider?');">Delete</a>
+                            <a href="?delete_id=<?php echo $row['hpID']; ?>" class="button delete-button" onclick="return confirm('Are you sure you want to delete this healthcare provider?');">Delete</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

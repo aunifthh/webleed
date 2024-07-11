@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['staffID']) && !isset($_SESSION['adminID'])) {
+    header("Location: login.php");
+    exit();
+}
+
 include('connection.php');
 
 // Fetch staff details from the database
