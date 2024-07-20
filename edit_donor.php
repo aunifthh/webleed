@@ -69,13 +69,14 @@ if (!$staff_result) {
             <label for="donWeight">Weight:</label>
             <input type="number" id="donWeight" name="donWeight" value="<?php echo $donor['donWeight']; ?>">
         </div>
-        <div class="form-group">
-            <label for="donBloodType">Blood Type:</label>
-            <p><?php echo $donor['donBloodType']; ?></p>
-        </div>
+
         <div class="form-group">
             <label for="donBloodQty">Blood Quantity:</label>
-            <input type="number" id="donBloodQty" name="donBloodQty" value="<?php echo $donor['donBloodQty']; ?>">
+            <div class="blood-qty-input">
+                <button type="button" onclick="decrementValue('donBloodQty')">-</button>
+                <input type="number" id="donBloodQty" name="donBloodQty" min=0 value="<?php echo $donor['donBloodQty']; ?>">
+                <button type="button" onclick="incrementValue('donBloodQty')">+</button>
+            </div>
         </div>
         <div class="form-group">
             <label for="donFrequency">Donation Frequency:</label>

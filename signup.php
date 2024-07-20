@@ -33,8 +33,8 @@
         <h2>Registration</h2>
         <form action="signup0.php" method="post">
             <div class="form-group">
-                <label for="id">ID:</label>
-                <input type="text" id="id" name="id" placeholder="(Eg: 1105)" required>
+                <label for="ic">IC:</label>
+                <input type="text" id="ic" name="ic" placeholder="(Eg: 010203-04-0506)" required>
             </div>
 
             <div class="form-group">

@@ -30,8 +30,8 @@ if (!$result) {
         </div>
         <div class="navbar_content">
             <ul>
-                <li><a href="home_admin.php">Home</a></li>
-                <li><a href="admin_profile.php">Profile</a></li>
+                <li><a href="home_staff.php">Home</a></li>
+                <li><a href="staff_profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
@@ -70,7 +70,7 @@ if (!$result) {
                     <td><?php echo $row['bcName']; ?></td>
                     <td>
                         <a href="edit_donor.php?donIC=<?php echo $row['donIC']; ?>" class="button">Edit</a>
-                        <a href="delete_donor.php?id=<?php echo $row['donIC']; ?>" class="button" onclick="return confirm('Are you sure you want to delete this donor?');">Delete</a>
+                        <a href="delete_donor_staff.php?id=<?php echo $row['donIC']; ?>" class="button" onclick="return confirm('Are you sure you want to delete this donor?');">Delete</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>

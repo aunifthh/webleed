@@ -31,13 +31,13 @@
 
     <main>
         <section class="form-section">
-            <h2>Staff Information</h2>
+            <h2>View Profile</h2>
             <a href="staff_profile.php" class="registration-link">View</a>
         </section>
 
         <section class="form-section">
             <h2>Donor Information</h2>
-            <a href="donor_details.php" class="registration-link">View</a>
+            <a href="donor_details_staff.php" class="registration-link">View</a>
         </section>
 
 
